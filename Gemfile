@@ -52,7 +52,7 @@ gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'acts_as_list'
 gem 'awesome_rails_console'
-
+gem "intercom-rails"
 
 
 group :development do
