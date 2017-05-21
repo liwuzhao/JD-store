@@ -2,6 +2,7 @@
 t.t
 test
 test-wuzhao
+test-risa
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
