@@ -27,6 +27,9 @@ Rails.application.routes.draw do
       post :collect
       post :un_collect
     end
+    collection do
+      get :search
+    end
   end
 
   resources :carts do

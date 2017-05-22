@@ -1,0 +1,21 @@
+<h1 class="text-center">产品列表</h1><br>
+
+<div class="product-box">
+</div>
+
+  <div class="container">
+    <div class="productList">
+      <% @products.each do |product| %>
+        <div class="col-xs-6 col-md-3 productList-item">
+          <%= link_to product_path(product) do %>
+            <% if product.image.present? %>
+              <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+            <% end %>
+          <% end %>
+          <%= product.title %> ￥<%= product.price %>
+        </div>
+      <% end %>
+    </div>
+  </div>
