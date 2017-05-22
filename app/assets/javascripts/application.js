@@ -77,26 +77,30 @@ $(window).scroll(function () {
  }
 })
 
-// 更改数量
-$(document).on('turbolinks:load', function() {
-  /*增加数量*/
-  $("#quantity-plus").click(function(e) {
-    var num = parseInt($("#quantity-input").val()) + 1;
-    $("#quantity-minus").removeClass("disabled");
-    $("#quantity-input").val(num);
-    e.preventDefault();
-  });
+// test
+$(document).ready(function(){
 
-  /*减少数量*/
-  $("#quantity-minus").click(function(e) {
-    var num = parseInt($("#quantity-input").val());
-    if (num > 1) {
-      $("#quantity-input").val(num -= 1);
-      $("#quantity-plus").removeClass("disabled");
-    }
-    if (num <= 1) {
-      $("#quantity-minus").addClass("disabled");
-    }
-    e.preventDefault();
-  });
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+
+        if(value == "all")
+        {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        }
+        else
+        {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+
+        }
+    });
+
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
 });

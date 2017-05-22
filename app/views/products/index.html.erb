@@ -3,13 +3,12 @@
   <h1 class="text-center">产品列表</h1><br>
 
   <div class="row">
-    <div class=" col-md-6 col-md-offset-3">
-      <ul class="nav nav-tabs">
-        <li style="margin-left:170px;"><%= link_to "所有", products_path %></li>
-        <li><%= link_to "三个月", products_path(:c => "三个月" ) %></li>
-        <li><%= link_to "半年", products_path(:c => "半年" ) %></li>
-        <li><%= link_to "一年", products_path(:c => "一年" ) %></li>
-      </ul>
+
+    <div align="center">
+        <a href="/products" class="btn btn-default" role="button">所有计划</a>
+        <a href="?c=三个月" class="btn btn-default" role="button">三个月计划</a>
+        <a href="?c=半年" class="btn btn-default" role="button">半年计划</a>
+        <a href="?c=一年" class="btn btn-default" role="button">一年计划</a>
     </div>
     <div class="dropdown  pull-right">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -28,19 +27,19 @@
 
 
 
-    <div class="productList">
-      <% @products.each do |product| %>
-        <div class="col-xs-6 col-md-3 productList-item">
-          <%= link_to product_path(product) do %>
-            <% if product.image.present? %>
-              <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-            <% else %>
-              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-            <% end %>
+  <div class="productList">
+    <% @products.each do |product| %>
+      <div class="col-xs-6 col-md-3 productList-item">
+        <%= link_to product_path(product) do %>
+          <% if product.image.present? %>
+            <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+          <% else %>
+            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
           <% end %>
-          <%= product.title %> ￥<%= product.price %>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+        <%= product.title %> ￥<%= product.price %>
+      </div>
+    <% end %>
+  </div>
 
 </div>
