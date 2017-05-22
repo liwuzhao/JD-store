@@ -53,6 +53,7 @@ gem 'aasm'
 gem 'acts_as_list'
 gem 'awesome_rails_console'
 gem "intercom-rails"
+gem 'jquery-turbolinks'
 
 
 group :development do
