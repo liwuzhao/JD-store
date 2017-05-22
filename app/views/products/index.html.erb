@@ -1,7 +1,13 @@
 <h1 class="text-center">产品列表</h1><br>
 
-<div class="product-box">
-</div>
+<ul class="nav nav-tabs">
+  <li style="margin-left:170px;"><%= link_to "所有", products_path %></li>
+  <li><%= link_to "三个月", products_path(:c => "三个月" ) %></li>
+  <li><%= link_to "半年", products_path(:c => "半年" ) %></li>
+  <li><%= link_to "一年", products_path(:c => "一年" ) %></li>
+
+</ul>
+
 
   <div class="container">
     <div class="productList">
