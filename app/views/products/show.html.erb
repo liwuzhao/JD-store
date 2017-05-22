@@ -33,7 +33,13 @@
 
     </div>
     <br>
-
+    <div>
+      <% if current_user && current_user.is_collect_of?(@product) %>
+        <%= link_to("取消收藏", un_collect_product_path(@product), method: :post, class: "btn btn-danger") %>
+      <% else %>
+        <%= link_to("收藏", collect_product_path(@product), method: :post, class: "btn btn-danger") %>
+      <% end %>
+    </div>
   </div>
 </div>
 
