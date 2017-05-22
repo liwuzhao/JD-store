@@ -2,15 +2,25 @@
 <div class="pull-right" style="padding-bottom: 20px;">
   <%= link_to("新增产品", new_admin_product_path, class: "btn btn-primary btn-sm") %>
 </div>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th width="220">Product Pic</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th width="100"> Options</th>
-    </tr>
+
+  <table class="table list">
+  <thead class="font">
+    <th>
+      id
+    </th>
+    <th>
+      产品
+    </th>
+    <th>
+      名称
+    </th>
+    <th>
+      价格
+    </th>
+    <th>
+      管理选项
+    </th>
+
   </thead>
   <tbody>
     <% @products.each do |product| %>
@@ -34,13 +44,23 @@
           <%= product.price %>
         </td>
         <td>
-          <%= link_to("Edit", edit_admin_product_path(product)) %>|
-          <%= link_to("Delete", admin_product_path(product), :method => :delete, :data => { :confirm => "Are you sure?" } ) %>
-          <%= link_to "向上", move_up_admin_product_path(product), method: :patch %>
-          <%= link_to "向下", move_down_admin_product_path(product), method: :patch %>
+          <%= link_to edit_admin_product_path(product),class:"btn btn-xs btn-warning" do %>
+            <i class="fa fa-pencil fa-fw"></i>
+          <% end %>
 
+          <%= link_to move_up_admin_product_path(product), class:"btn btn-xs btn-info", method: :patch do %>
+            <i class="fa fa-arrow-up fa-fw"></i>
+          <% end %>
+          <%= link_to move_down_admin_product_path(product),class:"btn btn-xs btn-info", method: :patch do%>
+            <i class="fa fa-arrow-down fa-fw"></i>
+          <% end %>
+          <%= link_to admin_product_path(product), class:"btn btn-xs  btn-danger" ,:method => :delete, :data => { :confirm => "Are you sure?" }  do%>
+            <i class="fa fa-trash-o fa-fw"></i>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
+</table>
+
 </table>

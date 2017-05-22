@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
@@ -46,20 +47,8 @@ $(document).ready(function () {
   })
 })
 
+
 // 回到顶部
-// $(document).on('click', '#gotop', function () {
-//   $('body').animate({'scrollTop': 0}, 500) //在500ms的时间内，慢慢地回到顶部
-// })
-//
-// $(window).scroll(function () {
-//   if ($(this).scrollTop() > 500) {
-//     $('#gotop').fadeIn() // 当页面向下滚动的距离大于500px时，慢慢地显示「回到顶部按钮」
-//   } else {
-//     $('#gotop').fadeOut() // 否则慢慢地隐藏「回到顶部按钮」
-//   }
-// })
-
-
 $(document).on('click', '.working', function () {
  alert('功能暂未完成，敬请期待...')
  // return false
@@ -87,3 +76,31 @@ $(window).scroll(function () {
   $('#sidebar').fadeOut()
  }
 })
+
+// test
+$(document).ready(function(){
+
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+
+        if(value == "all")
+        {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        }
+        else
+        {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+
+        }
+    });
+
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
+});

@@ -53,6 +53,11 @@ gem 'aasm'
 gem 'acts_as_list'
 gem 'awesome_rails_console'
 gem "intercom-rails"
+gem 'jquery-turbolinks'
+gem 'ransack'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'seo_helper'
 
 
 group :development do

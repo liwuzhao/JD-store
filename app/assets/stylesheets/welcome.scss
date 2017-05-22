@@ -10,10 +10,12 @@
     margin: auto;
 }
 
-.carousel-caption h3 {
-    color: #fff !important;
-}
-
+.carousel-caption {
+  margin-bottom: 250px;
+    h3 {
+      color: #fff !important;
+    }
+  }
 @media (max-width: 600px) {
     .carousel-caption {
         display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
@@ -100,4 +102,21 @@
 
 .modal-header, .modal-body {
     padding: 40px 50px;
+}
+
+
+// 用户反馈
+.short-line {
+  display: block;
+  background: #35CCC6;
+  border-style: none;
+  border-radius: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  z-index: 53;
+  width: 100px;
+  height: 1.5px;
+  position: relative;
 }

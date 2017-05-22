@@ -10,8 +10,9 @@
 if User.find_by(email: "admin@test.com").nil?
   a = User.new
   a.email = "admin@test.com"           # 可以改成自己的 email
-  a.password = "123456"                # 最少要六码
-  a.password_confirmation = "123456"   # 最少要六码
+  a.name = "admin"
+  a.password = "12345678"                # 最少要六码
+  a.password_confirmation = "12345678"   # 最少要六码
   a.is_admin = true
   a.save
   puts "Admin 已经建立好了，帐号为#{a.email}, 密码为#{a.password}"
@@ -22,8 +23,9 @@ end
 if User.find_by(email: "user@test.com").nil?
   u = User.new
   u.email = "user@test.com"           # 可以改成自己的 email
-  u.password = "123456"                # 最少要六码
-  u.password_confirmation = "123456"   # 最少要六码
+  u.name = "user"
+  u.password = "12345678"                # 最少要六码
+  u.password_confirmation = "12345678"   # 最少要六码
   u.is_admin = false
   u.save
   puts "User 已经建立好了，帐号为#{u.email}, 密码为#{u.password}"
@@ -38,6 +40,7 @@ Product.create!(title: "QC-35",
   description: "耳机",
   price: 2800,
   quantity: 5,
+  category: "半年",
   image: open("https://images-cn.ssl-images-amazon.com/images/I/41bVSMLUllL._AC_UL320_SR320,320_.jpg")
   )
 
@@ -45,6 +48,8 @@ Product.create!(title: "Iphone7",
   description: "手机",
   price: 5000,
   quantity: 5,
+  category: "半年",
+
   image: open("https://images-cn.ssl-images-amazon.com/images/I/51q3gdJGenL._SL800_.jpg")
   )
 
@@ -52,5 +57,7 @@ Product.create!(title: "Cherry Keyboard",
   description: "G80-3000键盘",
   price: 2800,
   quantity: 5,
+  category: "半年",
+
   image: open("https://images-cn.ssl-images-amazon.com/images/I/41LN-bXtA7L._AC_UL320_SR320,320_.jpg")
   )

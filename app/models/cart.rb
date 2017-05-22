@@ -10,6 +10,8 @@
 class Cart < ApplicationRecord
   has_many :cart_items
   has_many :products, through: :cart_items, source: :product
+  belongs_to :user
+
 
   # 加入购物车
   def add_product_to_cart(product)
@@ -18,6 +20,7 @@ class Cart < ApplicationRecord
     ci.quantity = 1
     ci.save
   end
+
 
   # 计算总价
   def total_price
@@ -29,6 +32,26 @@ class Cart < ApplicationRecord
     end
     sum
   end
+
+  def add(product, quantity)
+    if products.include?(product)
+      cart_item = cart_items.find_by_product_id(product.id)
+    else
+      cart_item = cart_items.build
+    end
+    cart_item.product = product
+    cart_item.quantity += quantity
+    product.quantity -= quantity
+    product.save
+    cart_item.save
+  end
+
+  def merge!(cart)
+    cart.cart_items.each do |item|
+      add(item.product, item.quantity)
+    end
+  end
+
 
   #清空购物车
   def clean!
