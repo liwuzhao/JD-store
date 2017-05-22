@@ -1,15 +1,33 @@
-<h1 class="text-center">产品列表</h1><br>
+<div class="container">
 
-<ul class="nav nav-tabs">
-  <li style="margin-left:170px;"><%= link_to "所有", products_path %></li>
-  <li><%= link_to "三个月", products_path(:c => "三个月" ) %></li>
-  <li><%= link_to "半年", products_path(:c => "半年" ) %></li>
-  <li><%= link_to "一年", products_path(:c => "一年" ) %></li>
+  <h1 class="text-center">产品列表</h1><br>
 
-</ul>
+  <div class="row">
+    <div class=" col-md-6 col-md-offset-3">
+      <ul class="nav nav-tabs">
+        <li style="margin-left:170px;"><%= link_to "所有", products_path %></li>
+        <li><%= link_to "三个月", products_path(:c => "三个月" ) %></li>
+        <li><%= link_to "半年", products_path(:c => "半年" ) %></li>
+        <li><%= link_to "一年", products_path(:c => "一年" ) %></li>
+      </ul>
+    </div>
+    <div class="dropdown  pull-right">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+          排序
+          <span class="caret"></span>
+        </button>
+        <ul class="reorder dropdown-menu ">
+          <li><%= link_to("综合排序", products_path(:c => @category)) %></li>
+          <li><%= link_to("价格从低到高", products_path(:c => @category, :order => "by_lower_price")) %></li>
+          <li><%= link_to("价格从高到低", products_path(:c => @category, :order => "by_upper_price")) %></li>
+        </ul>
+    </div>
+
+  </div>
 
 
-  <div class="container">
+
+
     <div class="productList">
       <% @products.each do |product| %>
         <div class="col-xs-6 col-md-3 productList-item">
@@ -24,4 +42,5 @@
         </div>
       <% end %>
     </div>
-  </div>
+
+</div>

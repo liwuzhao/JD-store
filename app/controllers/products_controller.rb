@@ -4,13 +4,21 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.all.order("position ASC")
+    @products = Product.all
 
     if params[:c].present?
       @category = params[:c]
       @products = @products.where(:category => @category)
     end
-    
+    #排序
+    @products = case params[:order]
+        when 'by_lower_price'
+          @products.order('price ASC')
+        when 'by_upper_price'
+          @products.order('price DESC')
+        else
+          @products.order("position ASC")
+        end
   end
 
   def show
