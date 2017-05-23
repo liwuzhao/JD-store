@@ -36,28 +36,28 @@ end
 
 # Initialize Product
 
-Product.create!(title: "QC-35",
-  description: "耳机",
+Product.create!(title: "会员卡",
+  description: "办理会员卡，期限内可获得使用Fitness各种器械，参与活动的资格",
   price: 2800,
   quantity: 5,
   category: "半年",
-  image: open("https://images-cn.ssl-images-amazon.com/images/I/41bVSMLUllL._AC_UL320_SR320,320_.jpg")
+  image: open("http://ww4.sinaimg.cn/large/006tNbRwgy1ffvc7ldcjlj31kw151u19.jpg")
   )
 
-Product.create!(title: "Iphone7",
-  description: "手机",
+Product.create!(title: "瑜伽课程",
+  description: "专业瑜伽教练指导",
   price: 5000,
   quantity: 5,
   category: "半年",
 
-  image: open("https://images-cn.ssl-images-amazon.com/images/I/51q3gdJGenL._SL800_.jpg")
+  image: open("http://ww2.sinaimg.cn/large/006tNbRwgy1ffvc74wdslj31kw11xkjt.jpg")
   )
 
-Product.create!(title: "Cherry Keyboard",
-  description: "G80-3000键盘",
-  price: 2800,
+Product.create!(title: "一对一私教",
+  description: "专业教练一对一指导，为你量身订制合适的健身计划",
+  price: 7800,
   quantity: 5,
   category: "半年",
 
-  image: open("https://images-cn.ssl-images-amazon.com/images/I/41LN-bXtA7L._AC_UL320_SR320,320_.jpg")
+  image: open("http://ww3.sinaimg.cn/large/006tNbRwgy1ffvc79e1mqj31kw11x1l4.jpg")
   )

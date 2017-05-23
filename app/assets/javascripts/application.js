@@ -43,7 +43,7 @@ function openCity(evt, cityName) {
 //  轮播时间
 $(document).ready(function () {
   $('#myCarousel').carousel({
-    interval: 2000 //目前是2秒播放一张，可以根据需要调整这个值
+    interval: 3000 //目前是2秒播放一张，可以根据需要调整这个值
   })
 })
 

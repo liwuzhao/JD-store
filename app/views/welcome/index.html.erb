@@ -1,31 +1,17 @@
 <!-- seciont1 -->
-<div id="myCarousel" class="carousel slide">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
- </ol>
- <div class="carousel-inner">
-    <div class="item active">
+<div class="carousel-inner">
+  <div class="carousel">
      <a href="javascript:;">
-      <%= image_tag("girl1.jpg")%>
-      <div class="carousel-caption"></div>
+      <%= image_tag("header1.jpg")%>
      </a>
-    </div>
-    <div class="item">
-     <a href="javascript:;">
-      <%= image_tag("boy.jpg")%>
-      <div class="carousel-caption"></div>
-     </a>
-    </div>
-    <div class="item">
-     <a href="javascript:;">
-      <%= image_tag("girl2.jpg")%>
-      <div class="carousel-caption"></div>
-     </a>
-    </div>
+     <div class="carousel-caption">
+       <h1 class="title">Fitness 健身俱乐部<h1>
+       <p class="lead">一步步改变自己</p>
+       <p><a class="btn btn-lg btn-button" href="/products">加入我们</a></p>
+     </div>
   </div>
 </div>
+
 
 <!-- section2 -->
 <div class="container text-center container_in_welcome">
@@ -49,7 +35,7 @@
     <div class="col-sm-4">
       <p class="text-center"><strong>专业的教练团队</strong></p><br>
       <a href="#demo2" data-toggle="collapse">
-        <%= image_tag("jiaolian.jpg", :class => "img-circle person", :id => "trip1" )%>
+        <%= image_tag("boy.jpg", :class => "img-circle person", :id => "trip1" )%>
       </a>
       <div id="demo2" class="collapse">
         <p>精心指导</p>
@@ -87,7 +73,7 @@
 
           <p><strong> 会员卡 </strong></p>
           <p>可参加各种大课，尽享运动快乐</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">购买</button>
+          <a class="btn btn-button" href="/products">购买</a>
         </div>
       </div>
 
@@ -96,7 +82,7 @@
           <%= image_tag("onebyone.jpg", :style => "width:400 height:300" )%>
           <p><strong>一对一私教</strong></p>
           <p>专业指导，尊享极速健身</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">购买</button>
+          <a class="btn btn-button" href="/products">购买</a>
         </div>
       </div>
 
@@ -105,7 +91,7 @@
           <%= image_tag("yoga.jpg", :style => "width:400 height:300" )%>
           <p><strong>瑜珈导师训练</strong></p>
           <p> 精进技艺，让你与众不同</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">购买</button>
+          <a class="btn btn-button" href="/products">购买</a>
         </div>
       </div>
 
@@ -115,47 +101,6 @@
 
 
 
-<div class="container text-center container_in_welcome">
-  <h3>快来加入我们吧</h3>
-  <p><em></em></p>
-  <p></p>
-  <br>
-
-
-</div>
-
-
-<!-- 购买 弹窗 -->
-
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form">
-          <div class="form-group">
-            <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
-            <input type="number" class="form-control" id="psw" placeholder="How many?">
-          </div>
-          <div class="form-group">
-            <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
-            <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-          </div>
-          <button type="submit" class="btn btn-block">Pay
-            <span class="glyphicon glyphicon-ok"></span>
-          </button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-          <span class="glyphicon glyphicon-remove"></span> Cancel
-        </button>
-      </div>
-    </div>
-  </div>
+<div class="bottom row">
+    <p style="margin-top:150px;"><a class="btn btn-lg btn-button" href="/products">加入我们</a></p>
 </div>

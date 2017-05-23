@@ -81,3 +81,44 @@ div.tab button.active {
   .nav-tabs li a {
     color: #777;
  }
+
+
+//
+
+.product-content img {
+    width: 100%;
+    margin: 7.5px auto 7.5px auto;
+  }
+
+  .product-info {
+     text-align: left;
+     line-height: 14px;
+     min-height: 55px;
+   }
+
+.product-box {
+  text-align: center;
+  padding: 0 0 100px 0;
+  background: #F5F5F5;
+
+.background-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  p{
+    color: #e74c3c !important;
+  }
+
+  a{
+    color: #666 !important;
+  }
+
+  a:hover {
+  color: #e74c3c !important; //鼠标点击商品名称反馈
+
+  img {
+    opacity: 0.8; //鼠标放在图片上的显示
+  }
+}
+}
