@@ -3,13 +3,13 @@
   <h1 class="text-center">产品列表</h1><br>
 
   <div class="row">
-
+<!--
     <div align="center">
         <a href="/products" class="btn btn-default" role="button">所有计划</a>
         <a href="?c=三个月" class="btn btn-default" role="button">三个月计划</a>
         <a href="?c=半年" class="btn btn-default" role="button">半年计划</a>
         <a href="?c=一年" class="btn btn-default" role="button">一年计划</a>
-    </div>
+    </div> -->
     <div class="dropdown  pull-right">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
           排序
@@ -29,7 +29,7 @@
 
   <div class="productList">
     <% @products.each do |product| %>
-      <div class="col-xs-6 col-md-3 productList-item">
+      <div class="col-xs-6 col-md-3">
         <%= link_to product_path(product) do %>
           <% if product.image.present? %>
             <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
@@ -37,9 +37,10 @@
             <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
           <% end %>
         <% end %>
-        <%= product.title %> ￥<%= product.price %>
+        <p><%= product.title %> ￥<%= product.price %></p>
       </div>
     <% end %>
+
   </div>
 
 </div>

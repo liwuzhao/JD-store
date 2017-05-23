@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-md-5 col-md-offset-1">
+  <div class="col-md-4 col-md-offset-2">
 
     <% if @product.image.present? %>
       <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
@@ -30,22 +30,20 @@
       <% else %>
       已销售一空，无法购买
       <% end %>
-
-    </div>
-    <br>
-    <div>
       <% if current_user && current_user.is_collect_of?(@product) %>
-        <%= link_to("取消收藏", un_collect_product_path(@product), method: :post, class: "btn btn-danger") %>
+        <%= link_to("取消收藏", un_collect_product_path(@product), method: :post, class: "btn btn-lg btn-danger") %>
       <% else %>
-        <%= link_to("收藏", collect_product_path(@product), method: :post, class: "btn btn-danger") %>
+        <%= link_to("收藏", collect_product_path(@product), method: :post, class: "btn btn-lg btn-danger") %>
       <% end %>
     </div>
+
   </div>
+
 </div>
 
 
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-8 col-md-offset-2">
 
   <div class="tab">
     <button class="tablinks" onclick="openCity(event, '商品评价')" id="defaultOpen">商品评价</button>
@@ -53,20 +51,19 @@
 
 
   <div id="商品评价" class="tabcontent">
-
+    <div>
+      <%= link_to("添加评论", new_product_comment_path(@product), class: "btn btn-default pull-right")%>
+    </div>
+    <br>
     <% @product.comments.each do |post| %>
       <p><%= post.content %></p>
       <p><%= post.user.email %></p>
       <p><%= post.created_at.strftime("%Y-%m-%d") %></p>
       <hr>
     <% end %>
-
-    <%= link_to("添加评论", new_product_comment_path(@product), class: "btn btn-default pull-right")%>
-
   </div>
-
+  <br>
 </div>
-
 
 <script>
   document.getElementById("defaultOpen").click();

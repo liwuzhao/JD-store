@@ -166,6 +166,9 @@
   .navbar_fix{
     margin-top: 100px;
   }
+  .flash{
+    margin-top: -44px;
+  }
 
   //---------Dropdown------------
   .dropdown-menu li a:hover {
@@ -179,7 +182,7 @@
 
   /*===== 登录 ====*/
   .user_setup {
-    height: 770px;
+    height: 100% ;
     background-image: image-url("header.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -206,6 +209,7 @@
 
     .form-inputs {
       margin-top: 25px;
+      width: 130%;
     }
 
     .form-actions {
@@ -229,7 +233,7 @@
    //加上width
   }
 
-  .form-group {
+  .search-form-group {
    margin-bottom: 10px;
    margin-top: 10px;
    margin-right: 100px;

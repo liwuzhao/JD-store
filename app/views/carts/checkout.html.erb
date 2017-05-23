@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container">
    <div class="col-md-12">
 
     <h2> 购物明细 </h2>
@@ -40,32 +40,27 @@
 
     <hr>
 
-    <h2> 订单资讯 </h2>
 
-    <div class="order-form">
+    <div >
+      <h2> 订单资讯 </h2>
 
       <%= simple_form_for @order do |f| %>
 
           <legend> 订购人</legend>
-          <div class="form-group col-lg-6">
-            <%= f.input :billing_name  %>
-          </div>
-          <div class="form-group col-lg-6">
-            <%= f.input :billing_address  %>
+          <div class="form-group col-md-6">
+            <%= f.input :billing_name ,:label => "订购人"  %>
           </div>
 
-          <legend> 收货人</legend>
-          <div class="form-group col-lg-6">
-           <%= f.input :shipping_name  %>
-          </div>
-          <div class="form-group col-lg-6">
-            <%= f.input :shipping_address  %>
+          <div class="form-group col-md-6">
+            <%= f.input :number  ,:label => "联系电话" %>
           </div>
 
-        <div class="checkout">
-          <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
-                       data: { disable_with: "Submitting..." } %>
-        </div>
+
+          <div class="checkout col-md-12">
+            <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
+                         data: { disable_with: "Submitting..." } %>
+          </div>
+
       <% end %>
 
     </div>
