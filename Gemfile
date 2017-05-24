@@ -58,6 +58,8 @@ gem 'ransack'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'seo_helper'
+gem 'carrierwave-qiniu'
+gem 'qiniu-rs'
 
 
 group :development do
