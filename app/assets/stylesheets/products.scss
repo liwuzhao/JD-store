@@ -98,6 +98,7 @@
   }
   .a1:hover{
     background: rgba(210,38,40 ,1);
+    color: white;
   }
   .a2{
     width:200px;
@@ -129,6 +130,12 @@
       color:#3a2f2d;
     }
   }
+}
+.description{
+  font-size: 16px;
+  color: #666;
+  letter-spacing: 2px;
+  line-height: auto;
 }
 
 // 评论
