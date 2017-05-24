@@ -3,9 +3,9 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>#</th>
+      <th>订单序号</th>
+      <th>订单状态</th>
       <th>生成时间</th>
-
     </tr>
   </thead>
   <tbody>
@@ -13,6 +13,7 @@
     <% @orders.each do |order| %>
     <tr>
       <td> <%= link_to(order.id, order_path(order.token)) %> </td>
+      <td> <%= order.aasm_state %> </td>
       <td> <%= order.created_at.to_s(:long) %> </td>
     </tr>
     <% end %>

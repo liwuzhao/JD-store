@@ -1,47 +1,48 @@
 <div class="row">
   <div class="col-md-12">
+    <% if @products.count >0 %>
+      <h2 class="text-center"> 我的收藏 </h2>
+      <table class="table table-striped list">
+        <thead class="font">
+          <th></th>
+          <th>
+            产品
+          </th>
+          <th>
+            名称
+          </th>
+          <th>
+            价格
+          </th>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td></td>
+              <td>
+                <%= link_to product_path(product) do %>
+                  <% if product.image.present? %>
+                    <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+                  <% else %>
+                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <%= product.title %>
+              </td>
+              <td>
+                <%= product.price %>
+              </td>
 
-    <h2 class="text-center"> 我的收藏 </h2>
-
-    <table class="table table-striped list">
-    <thead class="font">
-      <th></th>
-      <th>
-        产品
-      </th>
-      <th>
-        名称
-      </th>
-      <th>
-        价格
-      </th>
-
-
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-        <tr>
-          <td></td>
-          <td>
-            <%= link_to product_path(product) do %>
-              <% if product.image.present? %>
-                <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-              <% else %>
-                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-              <% end %>
-            <% end %>
-          </td>
-          <td>
-            <%= product.title %>
-          </td>
-          <td>
-            <%= product.price %>
-          </td>
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+        <h2 class="no-collection">你还没有收藏商品喔 <span class="fa fa-frown-o"></span></h2>
+        <p class="text-center"><a class="btn btn-lg btn-welcome" href="/products">马上选购</a></p>
+    <% end %>
 
   </div>
 </div>
