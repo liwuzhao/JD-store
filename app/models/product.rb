@@ -24,4 +24,17 @@ class Product < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   acts_as_list
+
+  scope :published, -> { where(is_public: true) }
+
+  def publish!
+    self.is_public = true
+    self.save
+  end
+
+  def hide!
+    self.is_public = false
+    self.save
+  end
+
 end

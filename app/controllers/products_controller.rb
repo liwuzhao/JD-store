@@ -4,13 +4,13 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.all
+    @products = Product.published
     #
     # if params[:c].present?
     #   @category = params[:c]
     #   @products = @products.where(:category => @category)
     # end
-    
+
     #排序
     @products = case params[:order]
         when 'by_lower_price'
@@ -38,6 +38,18 @@ class ProductsController < ApplicationController
     end
 
     redirect_to :back
+  end
+
+  def pay_now
+    @product = Product.find(params[:id])
+
+    if !current_cart.products.include?(@product)
+      current_cart.add_product_to_cart(@product)
+      flash[:notice] = "你已成功将 #{@product.title} 加入购物车"
+    else
+     redirect_to carts_path
+    end
+
   end
 
   def collect

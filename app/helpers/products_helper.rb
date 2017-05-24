@@ -6,4 +6,12 @@ module ProductsHelper
        link_to("", un_collect_product_path(product),:remote=>true, method: :post,  class: "show-heart2 fa fa-heart ",style:"text-decoration:none;color:red;")
      end
   end
+
+  def render_product_status(product)
+    if product.is_public
+      content_tag(:span, "", :class => "fa fa-globe")
+    else
+      content_tag(:span, "", :class => "fa fa-lock")
+    end
+  end
 end
