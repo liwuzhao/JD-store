@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-4 col-md-offset-2">
 
@@ -8,63 +7,67 @@
       <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
     <% end %>
   </div>
-  <div class="col-md-4">
-    <h2> <%= @product.title %> </h2>
 
-
-    <hr>
-    <div style="height:100px;">
-      <p>
-        <%= @product.description %>
-      </p>
+  <div class="col-md-6 col-xs-12">
+    <h3><%= simple_format(@product.title) %></h3>
+    <div class="show-service">
+      <p class="price">售价 <span class="rmb">￥</span><span class="price"><%= @product.price %></span></p>
+      <p class="service">服务 <span class="service-detail">专业教练指导| 专业的器械设备 | 质量保证</span></p>
     </div>
-    <hr>
-    <div> 数量 : <%= @product.quantity %> </div>
+    <div class="show-quantity">
+      <p class="quantity">库存 <span class="quantity"><%= @product.quantity %></span> </p>
+    </div>
 
-    <div class="product-price"> ￥ <%= @product.price %> </div>
-    <br>
-
-    <div>
+    <div class="show-action clearfix">
       <% if @product.quantity.present? && @product.quantity > 0 %>
-        <%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg btn-danger") %>
+        <%= link_to("加入购物车",add_to_cart_product_path(@product),:remote=>true,method: :post, class: "btn btn-lg a1") %>
       <% else %>
-      已销售一空，无法购买
-      <% end %>
-      <% if current_user && current_user.is_collect_of?(@product) %>
-        <%= link_to("取消收藏", un_collect_product_path(@product), method: :post, class: "btn btn-lg btn-danger") %>
-      <% else %>
-        <%= link_to("收藏", collect_product_path(@product), method: :post, class: "btn btn-lg btn-danger") %>
+        <%= link_to("已售罄","#",class: "btn btn-lg", style:"background-color:gray;") %>
       <% end %>
     </div>
 
+
+    <div class="show-favorit" id="product-show-favorite<%=@product.id%>">
+        收藏人气(<%= @product.collectors.count %>)
+        <%= render_product_collection_state(@product) %>
+    </div>
   </div>
 
 </div>
 
 
+<div class="col-md-6 col-md-offset-3">
+  <h3 class="text-center">商品详情</h3>
+   <ul class="nav nav-tabs">
+     <li class="active"><a data-toggle="tab" href="#home">资讯</a></li>
+     <li><a data-toggle="tab" href="#menu1">评论</a></li>
+  </ul>
 
-<div class="col-md-8 col-md-offset-2">
+   <div class="tab-content">
+     <div id="home" class="tab-pane fade in active">
+        <h2>课程介绍</h2>
+       <p>
+         <%= @product.description %>
+       </p>
+     </div>
+     <div id="menu1" class="tab-pane fade">
+       <div class="comment-input">
+         <br>
+         <%= simple_form_for @comment,url:product_comments_path(@product),:remote => true do |f| %>
+           <%= f.input :content, label:"说你想说"%>
+           <%= f.submit "添加评论", :disable_with => "提交中",class: "btn comment-button" %>
+         <% end %>
+         <br>
+       </div>
 
-  <div class="tab">
-    <button class="tablinks" onclick="openCity(event, '商品评价')" id="defaultOpen">商品评价</button>
+       <table class="table table-striped table-bordered">
+         <tbody id="product-comment-<%=@product.id%>">
+           <% @product.comments.order("created_at DESC").each do |comment| %>
+             <%= render :partial => "comment_list", :locals=> {:product=> @product,:comment => comment}%>
+           <% end %>
+         </tbody>
+       </table>
+
+     </div>
   </div>
-
-
-  <div id="商品评价" class="tabcontent">
-    <div>
-      <%= link_to("添加评论", new_product_comment_path(@product), class: "btn btn-default pull-right")%>
-    </div>
-    <br>
-    <% @product.comments.each do |post| %>
-      <p><%= post.content %></p>
-      <p><%= post.user.email %></p>
-      <p><%= post.created_at.strftime("%Y-%m-%d") %></p>
-      <hr>
-    <% end %>
-  </div>
-  <br>
 </div>
-
-<script>
-  document.getElementById("defaultOpen").click();
-</script>

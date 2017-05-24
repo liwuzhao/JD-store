@@ -4,61 +4,9 @@
 
 
 
-// -------商品详情 & 商品评价--------
-div.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+.tab-content{
+  min-height: 400px;
 }
-
-/* Style the buttons inside the tab */
-div.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-div.tab button:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-div.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-    min-height: 400px;
-}
-
-
-.tabcontent {
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-}
-
-
-
-@-webkit-keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
 
 /*商品列表*/
 .productList {
@@ -85,3 +33,116 @@ div.tab button.active {
   .nav-tabs li a {
     color: #777;
  }
+
+ //
+
+// show页面样式
+
+.show-service{
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
+  border-top: 1px dotted #dedede ;
+  border-bottom: 1px dotted #dedede;
+  p.price{
+    span.rmb{
+      color: #d7282d;
+      margin-left: 20px;
+    }
+    span.price{
+      color: #d7282d;
+      font-size: 30px;
+    }
+  }
+  p.service{
+    span.service-detail{
+      margin-left: 20px;
+    }
+  }
+}
+
+.show-quantity{
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
+  p.quantity{
+    span.quantity{
+      margin-left: 20px;
+    }
+  }
+  p.sizes{
+    span.sizes{
+      margin-left: 20px;
+    }
+  }
+  p.delivery{
+    span.delivery{
+      margin-left: 20px;
+    }
+  }
+}
+.show-action{
+  padding-top:30px;
+
+  .a1{
+    width:200px;
+    color:white;
+    weight:10;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 10px;
+    background:rgba(215,40,45,1);
+  }
+  .a1:hover{
+    background: rgba(210,38,40 ,1);
+  }
+  .a2{
+    width:200px;
+    color:#3a2f2d;
+    weight:10;
+    border:1px solid #3a2f2d;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    float:left;
+  }
+  .show-scan{
+    float:left;
+    margin-left: 20px;
+    .collapse{
+    }
+  }
+}
+.show-favorit{
+  margin-top:15px;
+  margin-left:8px;
+
+  a {
+    margin-left:20px;
+    font-size: 20px;
+    .show-heart1{
+      color:red;
+    }
+    .show-heart2{
+      color:#3a2f2d;
+    }
+  }
+}
+
+// 评论
+.comment-input{
+  margin:20px auto;
+  width:80%;
+  .comment-file{
+    background-color:rgb(250,246,246);
+  }
+  .comment-button{
+    // background-color: rgb(240,240,240);
+    width:100px;
+    height:40px;
+    margin-left:40%;
+    box-shadow:4px 4px 4px rgba(189,189,189 ,1);
+  }
+}

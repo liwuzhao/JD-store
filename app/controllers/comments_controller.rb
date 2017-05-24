@@ -6,8 +6,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-
-
   def create
     @product = Product.find(params[:product_id])
     @comment = Comment.new(comment_params)
@@ -21,7 +19,6 @@ class CommentsController < ApplicationController
     end
 
   end
-
 
   private
 
