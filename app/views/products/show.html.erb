@@ -28,8 +28,8 @@
 
 
     <div class="show-favorit" id="product-show-favorite<%=@product.id%>">
-        收藏人气(<%= @product.collectors.count %>)
         <%= render_product_collection_state(@product) %>
+        收藏人气(<%= @product.collectors.count %>)
     </div>
   </div>
 

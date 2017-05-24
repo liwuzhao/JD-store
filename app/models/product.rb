@@ -13,7 +13,6 @@
 #
 
 class Product < ApplicationRecord
-  validates :category, presence: true
 
   has_many :cart_items
   has_many :cart, through: :cart_items, :dependent => :destroy

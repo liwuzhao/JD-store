@@ -26,11 +26,12 @@
       </tbody>
     </table>
 
-    <div class="total clearfix">
+    <div class="total clearfix amount">
       <span class="pull-right">
-        总计 <%= @order.total %> CNY
+        <h4>总计 <%= @order.total %> 元</h4>
       </span>
     </div>
+
 
      <hr>
 
@@ -45,17 +46,17 @@
         </tr>
         <tr>
           <td>
-            <%= @order.billing_name %> - <%= @order.billing_address %>
+            <%= @order.billing_name %>
           </td>
         </tr>
         <tr>
           <td>
-            收件人
+            联系电话
           </td>
         </tr>
         <tr>
           <td>
-            <%= @order.shipping_name %> - <%= @order.shipping_address %>
+            <%= @order.phone_numbers %>
           </td>
         </tr>
       </tbody>
