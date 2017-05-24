@@ -13,7 +13,6 @@
 #
 
 class Product < ApplicationRecord
-  validates :category, presence: true
 
   has_many :cart_items
   has_many :cart, through: :cart_items, :dependent => :destroy
@@ -25,4 +24,17 @@ class Product < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   acts_as_list
+
+  scope :published, -> { where(is_public: true) }
+
+  def publish!
+    self.is_public = true
+    self.save
+  end
+
+  def hide!
+    self.is_public = false
+    self.save
+  end
+
 end

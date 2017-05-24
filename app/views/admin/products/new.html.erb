@@ -11,10 +11,6 @@
   </div>
 
   <div class="group">
-    <%= f.input :category, :collection => ["半年","三个月","一年"], :selected => "半年" %>
-  </div>
-
-  <div class="group">
     <%= f.input :quantity %>
   </div>
 
@@ -26,6 +22,10 @@
     <%= f.input :image, as: :file %>
   </div>
 
-  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+  <div class="group">
+    <%= f.input :is_public, label:"上架" %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class:"btn btn-primary" %>
 
 <% end %>

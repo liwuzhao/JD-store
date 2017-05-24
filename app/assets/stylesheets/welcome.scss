@@ -76,7 +76,7 @@
 }
 
 /* Black buttons with extra padding and without rounded borders */
-.btn {
+.btn-welcome {
     padding: 10px 20px;
     background-color: #333;
     color: #f1f1f1;
@@ -85,7 +85,7 @@
 }
 
 /* On hover, the color of .btn will transition to white with black text */
-.btn:hover, .btn:focus {
+.btn-welcome:hover, .btn:focus {
     border: 1px solid #333;
     background-color: #fff;
     color: #000;

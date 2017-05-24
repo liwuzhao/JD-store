@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       member do
         patch :move_up
         patch :move_down
+        post :hide
+        post :publish
       end
     end
     resources :orders do
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
     resources :comments
     member do
       post :add_to_cart
+      post :pay_now
       post :collect
       post :un_collect
     end
