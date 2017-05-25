@@ -1,22 +1,27 @@
-<h2>订单列表 </h2>
+<% if @orders.count >0 %>
+  <h2>订单列表 </h2>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>订单序号</th>
-      <th>订单状态</th>
-      <th>生成时间</th>
-    </tr>
-  </thead>
-  <tbody>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>订单序号</th>
+        <th>订单状态</th>
+        <th>生成时间</th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <% @orders.each do |order| %>
-    <tr>
-      <td> <%= link_to(order.id, order_path(order.token)) %> </td>
-      <td> <%= order.aasm_state %> </td>
-      <td> <%= order.created_at.to_s(:long) %> </td>
-    </tr>
-    <% end %>
+      <% @orders.each do |order| %>
+      <tr>
+        <td> <%= link_to(order.id, order_path(order.token)) %> </td>
+        <td> <%= order.aasm_state %> </td>
+        <td> <%= order.created_at.to_s(:long) %> </td>
+      </tr>
+      <% end %>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+<% else %>
+   <h2 class="no-collection">你还没有下单喔 <span class="fa fa-frown-o"></span></h2>
+   <p class="text-center"><a class="btn btn-lg btn-welcome" href="/products">马上选购</a></p>
+<% end %>

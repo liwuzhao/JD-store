@@ -56,25 +56,21 @@
 .shopping-cart .item .item-remove {
   display: block;
   position: absolute;
-  width: 36px;
-  height: 36px;
-  top: 0;
+  width: 30px;
+  height: 28px;
+  top: 28px;
   right: 0;
   font-size: 14px;
-  color: #606060;
   text-align: center;
   text-decoration: none;
-  border: 2px solid #ededed;
   border-radius: 4px;
 }
 
 .shopping-cart .item .item-remove > i {
-  line-height: 33px;
+  line-height: 25px;
 }
 
-.shopping-cart .item .item-remove:hover {
-  color: #ef0568;
-}
+
 
 .shopping-cart .btn, .shopping-cart .back-btn, .shopping-cart .done-btn, .shopping-cart .search-btn {
   margin-top: 0;
@@ -97,7 +93,7 @@
 
 .count-input {
   position: absolute;
-  top:-10px;
+  top:20px;
   left:60%;
   width: 100px;
   margin: 10px 0;
@@ -107,7 +103,7 @@
 }
 
 .count-input input {
-  width: 100%;
+  width: 80%;
   height: 25px;
   border: 2px solid #ededed;
   border-radius: 4px;
@@ -134,8 +130,8 @@
   text-align: center;
   line-height: 33px;
   text-decoration: none;
-  top: 0;
-  right: 0;
+  top: -5px;
+  right: 20px;
 }
 
 .count-input .incr-btn:first-child {

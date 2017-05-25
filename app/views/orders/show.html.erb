@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="contianer">
+  <div class="col-md-10 col-md-offset-1">
 
     <h2> 订单明细 </h2>
 
@@ -71,10 +71,9 @@
           <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
           <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
       </div>
-    <% else %>
-      <div class="text-center">
-        <p class="btn btn-primary disabled"><%= @order.aasm_state %></p>
-      </div>
     <% end %>
+    <div class="text-center">
+      <p class="btn  btn-primary disabled" style="min-width:100px;"><%= @order.aasm_state %></p>
+    </div>
   </div>
 </div>
