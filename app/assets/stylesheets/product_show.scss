@@ -105,14 +105,19 @@
 .comment-input{
   margin:20px auto;
   width:80%;
-  .comment-file{
-    background-color:rgb(250,246,246);
-  }
-  .comment-button{
-    // background-color: rgb(240,240,240);
-    width:100px;
-    height:40px;
-    margin-left:40%;
-    box-shadow:4px 4px 4px rgba(189,189,189 ,1);
-  }
+
+}
+
+.comment-button{
+  padding: 10px 20px;
+  background-color: #333;
+  color: #f1f1f1;
+  border-radius: 0;
+  transition: .2s;
+  margin-left:40%;
+}
+.comment-button:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
 }

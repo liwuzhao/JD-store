@@ -36,11 +36,25 @@
      color: white;
    }
 
-   footer .footer-below {
-     margin-top: 25px;
-     padding: 25px 0;
-     background-color: #2d2d30;
-   }
+    footer .footer-below {
+      margin-top: 25px;
+      padding: 25px 0;
+      background: #333333;
+      padding: 16px 10px 6px;
+      text-align: center;
+      font-size: 12px;
+      color: #C2C2C2;
+      span {
+          display: inline-block;
+          margin-left: 5px;
+          margin-right: 5px;
+          height: 24px;
+          line-height: 23px;
+      }
+      a{
+        text-decoration: none;
+      }
+    }
 
   //  to top
 
@@ -94,7 +108,7 @@
   }
 
   .navbar-default {
-   background-color: #2d2d30;
+   background-color: #333333;
    //背景颜色
 
    border-color: #2d2d30;
@@ -168,6 +182,12 @@
   }
   .flash{
     margin-top: -44px;
+  }
+  .navbar-brand > img {
+    display: inline-block; //图片和链接文字显示在同一行
+    margin-right: 10px; //图片和链接文字拉开一点距离
+    width: 28px; //定制图片宽度
+    height: 28px; //定制图片高度
   }
 
   //---------Dropdown------------

@@ -59,7 +59,7 @@
          <br>
          <%= simple_form_for @comment,url:product_comments_path(@product),:remote => true do |f| %>
            <%= f.input :content, label:"说你想说"%>
-           <%= f.submit "添加评论", :disable_with => "提交中",class: "btn comment-button" %>
+           <%= f.submit "添加评论", :disable_with => "提交中",class: "comment-button btn" %>
          <% end %>
          <br>
        </div>

@@ -45,8 +45,7 @@
       <aside>
         <h3 class="toolbar-title">购物车总价:</h3>
         <h4 class="amount">¥ <%= render_cart_total_price(current_cart) %></h4>
-        <p class="text-sm text-gray">* 点击结账后填写你的信息</p>
-
+        <p class="tips">* 成功生成订单后，请前往您的注册邮箱查看订单确认信</p>
 
         <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-info btn-block", data: {confirm: "Are you sure to clean the cart?"}) %>
 
