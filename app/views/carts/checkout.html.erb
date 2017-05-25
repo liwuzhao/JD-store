@@ -48,11 +48,11 @@
 
           <legend> 订购人</legend>
           <div class="form-group col-md-6">
-            <%= f.input :billing_name ,:label => "订购人"  %>
+            <%= f.input :billing_name ,input_html: {value: current_user.name}, :label => "请输入订购人姓名" %>
           </div>
 
           <div class="form-group col-md-6">
-            <%= f.input :phone_numbers ,:label => "联系电话" %>
+            <%= f.input :phone_numbers , input_html: {value: current_user.numbers} ,:label => "联系电话" %>
           </div>
 
           <div class="checkout col-md-12">
