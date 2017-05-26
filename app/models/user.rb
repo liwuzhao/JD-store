@@ -16,6 +16,10 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  nickname               :string
+#  name                   :string
+#  address                :string
+#  numbers                :string
 #
 
 class User < ApplicationRecord
@@ -30,8 +34,8 @@ class User < ApplicationRecord
   has_many :collections, through: :favours, source: :product
 
   has_one :cart
-  validates :name, presence: true
 
+  validates_length_of :numbers, maximum: 11
 
   def admin?
     is_admin

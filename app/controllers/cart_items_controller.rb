@@ -43,7 +43,7 @@ class CartItemsController < ApplicationController
          @cart_item.save
          redirect_to carts_path
     elsif @cart_item.quantity == 0
-         redirect_to carts_path, alert: "商品不能少于零！"
+         redirect_to carts_path, alert: "商品数量不能少于零！"
     end
   end
 

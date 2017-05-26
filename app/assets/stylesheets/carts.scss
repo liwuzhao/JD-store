@@ -89,62 +89,56 @@
   }
 }
 
-
-
-.count-input {
-  position: absolute;
-  top:20px;
-  left:60%;
-  width: 100px;
-  margin: 10px 0;
-  select{
-    width: 100px;
-  }
-}
-
-.count-input input {
-  width: 80%;
-  height: 25px;
-  border: 2px solid #ededed;
-  border-radius: 4px;
-  background: none;
-  text-align: center;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-}
-
-.count-input input:focus {
-  outline: none;
-}
-
-.count-input .incr-btn {
-  display: block;
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  font-size: 18px;
-  color: #606060;
-  font-weight: 300;
-  text-align: center;
-  line-height: 33px;
-  text-decoration: none;
-  top: -5px;
-  right: 20px;
-}
-
-.count-input .incr-btn:first-child {
-  right: auto;
-  left: 0;
-}
-
+// 总价
 .amount {
   color:#ef0568;
 }
+// 提示
 .tips{
   color:gray;
   font-size: 13px;
   font-family:fantasy;
   letter-spacing: 1px;
+}
+
+// 数量框
+.cart-quantity-box {
+ height: 20px;
+ position: absolute;
+ top:30px;
+ left:60%;
+ padding-left: 10px;
+ padding-right: 10px;
+ p{
+   color: #666;
+   span{
+     margin-right: 15px;
+   }
+ }
+
+ .cart-quantity-input {
+   width: 50px;
+   text-align: center;
+   border: 1px solid #ccc;
+   border-radius: 2.5px;
+   outline: none;
+ }
+
+ .cart-quantity-input:focus {
+   border: 1px solid #000;
+ }
+
+ .cart-quantity-actions {
+   padding: 2.5px 10px 2.5px 10px;
+   border: 1px solid #ccc;
+   border-radius: 2.5px;
+   color: gray;
+ }
+
+ .cart-quantity-actions:hover {
+   text-decoration: none;
+ }
+ .cart-quantity-actions:focus {
+   text-decoration: none;
+ }
 }

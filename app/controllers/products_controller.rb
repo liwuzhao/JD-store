@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.published
-    #
+
     # if params[:c].present?
     #   @category = params[:c]
     #   @products = @products.where(:category => @category)
@@ -29,25 +29,30 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     @product = Product.find(params[:id])
+    @quantity = params[:quantity].to_i
 
-    if !current_cart.products.include?(@product)
-      current_cart.add_product_to_cart(@product)
-      flash[:notice] = "你已成功将 #{@product.title} 加入购物车"
+    if current_cart.products.include?(@product)
+      flash[:warning] = "你的购物车内已有此物品"
+    elsif @quantity <= @product.quantity # 如果输入的数量小于库存
+      current_cart.add_product_to_cart(@product, @quantity)
+      flash[:notice] = "您选择的商品已加入购物车"
     else
-     flash[:warning] = "你的购物车内已有此物品"
+      flash[:warning] = "您选择的商品数量超过库存"
     end
 
-    redirect_to :back
+    redirect_to product_path(@product)
   end
 
   def pay_now
     @product = Product.find(params[:id])
+    @quantity = 1
 
     if !current_cart.products.include?(@product)
-      current_cart.add_product_to_cart(@product)
-      flash[:notice] = "你已成功将 #{@product.title} 加入购物车"
+      current_cart.add_product_to_cart(@product, @quantity)
+      redirect_to carts_path
     else
-     redirect_to carts_path
+      flash[:warning] = "你的购物车内已有此物品"
+      redirect_to carts_path
     end
 
   end
@@ -57,7 +62,6 @@ class ProductsController < ApplicationController
 
     if !current_user.is_collect_of?(@product)
       current_user.collect!(@product)
-      flash[:notice] = "已收藏该商品"
     else
       flash[:warning] = "你已经收藏过该商品了"
     end
@@ -70,7 +74,6 @@ class ProductsController < ApplicationController
 
     if current_user.is_collect_of?(@product)
       current_user.un_collect!(@product)
-      flash[:notice] = "已取消收藏该商品"
     else
       flash[:warning] = "你还没有收藏该商品"
     end

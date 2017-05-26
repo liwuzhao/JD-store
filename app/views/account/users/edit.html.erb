@@ -5,10 +5,9 @@
       <hr />
     <%= simple_form_for [:account, @user] do |f| %>
       <div class="form-inputs">
-        <%= f.input :nickname, :label => '昵称' %>
+        <%= f.input :nickname, :label => '真实姓名', required: true %>
         <%= f.input :name, :label => '真实姓名' %>
         <%= f.input :address, :label => '地址'  %>
-
         <%= f.input :numbers, :label => '联系电话'  %>
         <div class="form-actions">
           <%= f.button :submit, "更新",class: "btn btn-primary" %>
