@@ -34,8 +34,8 @@ class User < ApplicationRecord
   has_many :collections, through: :favours, source: :product
 
   has_one :cart
-  validates :nickname, presence: true
 
+  validates_length_of :numbers, maximum: 11
 
   def admin?
     is_admin
