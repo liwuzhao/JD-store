@@ -1,11 +1,7 @@
 <tr>
   <td>
    <span>
-     <% if comment.user.name.present? %>
-        <b><%= comment.user.name %></b>
-     <% else %>
-        <b>匿名用户</b>
-     <% end %>
+        <b><%= comment.user.nickname %></b>
      说：
    </span>
    <span class="pull-right" style="margin-top:20px;"><%= comment.created_at.to_s(:long) %></span>

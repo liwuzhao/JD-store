@@ -12,9 +12,9 @@ en:
       invalid: "Invalid %{authentication_keys} or password."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "账号或密码错误."
       timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      unauthenticated: "你需要先登录账号才！"
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:

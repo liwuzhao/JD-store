@@ -34,7 +34,7 @@ class User < ApplicationRecord
   has_many :collections, through: :favours, source: :product
 
   has_one :cart
-  validates :name, presence: true
+  validates :nickname, presence: true
 
 
   def admin?

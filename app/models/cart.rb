@@ -34,10 +34,10 @@ class Cart < ApplicationRecord
     sum
   end
 
-  #用户再次登录时，找回用户购物车里的物品 
+  #用户再次登录时，找回用户购物车里的物品
   def merge!(cart)
     cart.cart_items.each do |item|
-      add(item.product, item.quantity)
+      add_product_to_cart(item.product, item.quantity)
     end
   end
 

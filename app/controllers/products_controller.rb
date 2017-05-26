@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.published
-    #
+
     # if params[:c].present?
     #   @category = params[:c]
     #   @products = @products.where(:category => @category)
@@ -49,8 +49,10 @@ class ProductsController < ApplicationController
 
     if !current_cart.products.include?(@product)
       current_cart.add_product_to_cart(@product, @quantity)
+      redirect_to carts_path
     else
-     redirect_to carts_path
+      flash[:warning] = "你的购物车内已有此物品"
+      redirect_to carts_path
     end
 
   end
@@ -60,7 +62,6 @@ class ProductsController < ApplicationController
 
     if !current_user.is_collect_of?(@product)
       current_user.collect!(@product)
-      flash[:notice] = "已收藏该商品"
     else
       flash[:warning] = "你已经收藏过该商品了"
     end
@@ -73,7 +74,6 @@ class ProductsController < ApplicationController
 
     if current_user.is_collect_of?(@product)
       current_user.un_collect!(@product)
-      flash[:notice] = "已取消收藏该商品"
     else
       flash[:warning] = "你还没有收藏该商品"
     end
