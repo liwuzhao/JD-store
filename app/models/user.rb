@@ -16,6 +16,10 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  nickname               :string
+#  name                   :string
+#  address                :string
+#  numbers                :string
 #
 
 class User < ApplicationRecord

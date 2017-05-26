@@ -5,6 +5,7 @@
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Cart < ApplicationRecord
@@ -33,6 +34,7 @@ class Cart < ApplicationRecord
     sum
   end
 
+  # 保存用户购物车里商品
   def add(product, quantity)
     if products.include?(product)
       cart_item = cart_items.find_by_product_id(product.id)

@@ -10,6 +10,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  image       :string
+#  position    :integer
+#  is_public   :boolean          default(TRUE)
 #
 
 class Product < ApplicationRecord
