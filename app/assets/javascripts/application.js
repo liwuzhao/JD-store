@@ -11,41 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+// = require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require_tree .
+//= require turbolinks
 
-
-// ------------    tabs     ---------------
-function openCity(evt, cityName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-//  轮播时间
-$(document).ready(function () {
-  $('#myCarousel').carousel({
-    interval: 3000 //目前是2秒播放一张，可以根据需要调整这个值
-  })
-})
 
 
 // 回到顶部
@@ -77,30 +48,27 @@ $(window).scroll(function () {
  }
 })
 
-// test
-$(document).ready(function(){
 
-    $(".filter-button").click(function(){
-        var value = $(this).attr('data-filter');
+//
+$(document).on('turbolinks:load', function() {
+  /*增加数量*/
+  $("#quantity-plus").click(function(e) {
+    var num = parseInt($("#quantity-input").val()) + 1;
+    $("#quantity-minus").removeClass("disabled");
+    $("#quantity-input").val(num);
+    e.preventDefault();
+  });
 
-        if(value == "all")
-        {
-            //$('.filter').removeClass('hidden');
-            $('.filter').show('1000');
-        }
-        else
-        {
-//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-
-        }
-    });
-
-    if ($(".filter-button").removeClass("active")) {
-$(this).removeClass("active");
-}
-$(this).addClass("active");
-
+  /*减少数量*/
+  $("#quantity-minus").click(function(e) {
+    var num = parseInt($("#quantity-input").val());
+    if (num > 1) {
+      $("#quantity-input").val(num -= 1);
+      $("#quantity-plus").removeClass("disabled");
+    }
+    if (num <= 1) {
+      $("#quantity-minus").addClass("disabled");
+    }
+    e.preventDefault();
+  });
 });
