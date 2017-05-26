@@ -45,10 +45,10 @@ class ProductsController < ApplicationController
 
   def pay_now
     @product = Product.find(params[:id])
+    @quantity = 1
 
     if !current_cart.products.include?(@product)
-      current_cart.add_product_to_cart(@product)
-      flash[:notice] = "你已成功将 #{@product.title} 加入购物车"
+      current_cart.add_product_to_cart(@product, @quantity)
     else
      redirect_to carts_path
     end
