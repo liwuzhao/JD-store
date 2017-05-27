@@ -23,10 +23,10 @@
          <%= form_tag add_to_cart_product_path(@product), :method => :post, :remote => true do %>
             <div class="quantity-box">
                 <p>
-                <span>数量</span>
-                <%= link_to("-", "", id: "quantity-minus", class: "quantity-actions") %>
-                <input type="text" name="quantity" value="1" id="quantity-input" class="quantity-input">
-                <%= link_to("+", "", id: "quantity-plus", class: "quantity-actions") %>
+                  <span>数量</span>
+                  <%= link_to("-", "", id: "quantity-minus", class: "quantity-actions") %>
+                  <input type="text" name="quantity" value="1" id="quantity-input" class="quantity-input">
+                  <%= link_to("+", "", id: "quantity-plus", class: "quantity-actions") %>
                 </p>
             </div>
 
