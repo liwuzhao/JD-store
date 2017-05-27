@@ -1,5 +1,5 @@
 class CartItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! , only: [:checkout]
 
   def destroy
     @cart = current_cart
