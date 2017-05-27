@@ -35,6 +35,7 @@ class User < ApplicationRecord
 
   has_one :cart
 
+  validates :nickname, presence: true
   validates_length_of :numbers, maximum: 11
 
   def admin?

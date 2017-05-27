@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-// = require jquery.turbolinks
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap
 //= require_tree .
-//= require turbolinks
 
 
 
@@ -49,7 +49,7 @@ $(window).scroll(function () {
 })
 
 
-//
+//增减数量
 $(document).on('turbolinks:load', function() {
   /*增加数量*/
   $("#quantity-plus").click(function(e) {
@@ -72,3 +72,29 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
   });
 });
+
+
+// flash通知自动消失
+$(document).on('turbolinks:load', function() {
+
+  // 收起通知
+  slideUpAlert();
+
+});
+
+// 收起通知信息
+function slideUpAlert() {
+  // 消息停留2000毫秒（2秒），消失动画时间250毫秒
+  $(".alert").delay(1000).slideUp(250, function() {
+    $(this).remove();
+  });
+}
+
+// navbar
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 125) {
+        $('#navbar').addClass('show_bgcolor')
+    } else {
+        $('#navbar').removeClass('show_bgcolor')
+    }
+})

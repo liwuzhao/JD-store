@@ -107,7 +107,7 @@
  margin-bottom: 25px;
  padding-left: 10px;
  padding-right: 10px;
- p{
+  p{
    color: #666;
    span{
      margin-right: 15px;
@@ -127,7 +127,7 @@
  }
 
  .quantity-actions {
-   padding: 2.5px 10px 2.5px 10px;
+   padding: 1.5px 10px 1.5px 10px;
    border: 1px solid #ccc;
    border-radius: 2.5px;
    color: gray;
@@ -160,4 +160,10 @@
     border: 1px solid #333;
     background-color: #fff;
     color: #000;
+}
+.nav-tabs li a {
+  color: #777;
+}
+.tab-content{
+  min-height: 300px;
 }
