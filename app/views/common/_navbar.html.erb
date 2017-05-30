@@ -25,7 +25,7 @@
                     <li><%= link_to("所有产品", products_path) %></li>
                     <% Category.all.each do |category| %>
                       <li>
-                       <%= link_to(category.name, products_path(category: category)) %>
+                        <%= link_to(category.name, products_path(category: category.name)) %>
                      </li>
                     <% end %>
                   </ul>

@@ -4,10 +4,11 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.published
-    if params[:category].present?
-      @category = Category.find_by(params[:category])
-      @products = @products.where(:category => @category)
+    if params[:category].blank?
+      @products = Product.published
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @products = Product.published.where(:category_id => @category_id)
     end
 
     @products = case params[:order]

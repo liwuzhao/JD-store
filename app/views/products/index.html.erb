@@ -7,8 +7,8 @@
         </button>
         <ul class="reorder dropdown-menu ">
           <li><%= link_to("综合排序", products_path) %></li>
-          <li><%= link_to("价格从低到高", products_path(category: @category, :order => "by_lower_price")) %></li>
-          <li><%= link_to("价格从高到低", products_path(category: @category, :order => "by_upper_price")) %></li>
+          <li><%= link_to("价格从低到高", products_path(:order => "by_lower_price")) %></li>
+          <li><%= link_to("价格从高到低", products_path(:order => "by_upper_price")) %></li>
         </ul>
     </div>
   </div>
