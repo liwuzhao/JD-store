@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170530061118) do
     t.string   "billing_address"
     t.string   "shipping_name"
     t.string   "shipping_address"
+    t.string   "phone_numbers"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "token"
