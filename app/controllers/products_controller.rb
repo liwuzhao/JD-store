@@ -7,8 +7,9 @@ class ProductsController < ApplicationController
     if params[:category].blank?
       @products = Product.published
     else
-      @category_id = Category.find_by(name: params[:category]).id
-      @products = Product.published.where(:category_id => @category_id)
+      @category = Category.find_by(id: params[:category]) #找出是哪个category
+
+      @products = Product.published.where(:category => @category) #找出这个category下的Job
     end
 
     @products = case params[:order]
