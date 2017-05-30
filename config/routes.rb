@@ -12,6 +12,8 @@ Rails.application.routes.draw do
         post :publish
       end
     end
+
+      resources :categories
     resources :orders do
       member do
         post :cancel
