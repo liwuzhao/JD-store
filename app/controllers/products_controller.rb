@@ -5,13 +5,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.published
+    if params[:category].present?
+      @category = Category.find_by(params[:category])
+      @products = @products.where(:category => @category)
+    end
 
-    # if params[:c].present?
-    #   @category = params[:c]
-    #   @products = @products.where(:category => @category)
-    # end
-
-    #排序
     @products = case params[:order]
         when 'by_lower_price'
           @products.order('price ASC')
