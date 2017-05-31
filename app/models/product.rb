@@ -31,6 +31,12 @@ class Product < ApplicationRecord
 
   scope :published, -> { where(is_public: true) }
 
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
+  validates :quantity, presence: true
+
+
   def publish!
     self.is_public = true
     self.save

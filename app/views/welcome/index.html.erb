@@ -1,102 +1,116 @@
-<!-- seciont1 -->
-<div class="carousel-inner">
-  <div class="carousel">
-     <a href="javascript:;">
-      <%= image_tag("header1.jpg")%>
-     </a>
-     <div class="carousel-caption">
-       <h1 class="title">脱胎换骨，成为下一个想要的自己<h1>
-       <p class="lead">Fitness健身俱乐部</p>
-       <p><a class="btn btn-lg btn-welcome" href="/products">加入我们</a></p>
-     </div>
-  </div>
+<div class="jumbotron" style="border-radius:0">
+  <h2 class="title">Fitness健身俱乐部</h2>
+  <p class="slogan">脱胎换骨 发现自我</p>
+  <p class="lead"><a class="btn btn-lg btn-welcome" href="/products">加入我们</a></p>
 </div>
 
-
 <!-- section2 -->
-<div class="container text-center container_in_welcome">
-  <h3>关于我们</h3>
+<div class="container box-welcome" style="margin-top:-40px">
+  <h3 class="tagline">关于我们</h3>
   <p>20年专注，为会员提供一流的服务，专业的指导，伴你精彩一生。</p>
   <br>
 
-  <div class="">
-    <div class="col-md-4">
-      <p class="text-center"><strong>一流的环境设施</strong></p><br>
-      <a href="#demo" data-toggle="collapse">
-        <%= image_tag("shebei.jpg", :class => "img-circle person", :id => "trip1" )%>
-      </a>
-      <div id="demo" class="collapse">
-        <p>高级进口器械</p>
-        <p>恒温游泳池</p>
-        <p>沐浴桑拿</p>
-      </div>
+  <div class="col-md-4">
+    <p class="text-center"><strong>一流的环境设施</strong></p><br>
+    <%= image_tag("equipment.jpg", :class => "img-circle person", :id => "trip1" )%>
+    <div>
+      <br>
+      <p>高级进口器械</p>
+      <p>恒温游泳池</p>
+      <p>沐浴桑拿</p>
     </div>
+  </div>
 
-    <div class="col-md-4">
-      <p class="text-center"><strong>专业的教练团队</strong></p><br>
-      <a href="#demo2" data-toggle="collapse">
-        <%= image_tag("boy.jpg", :class => "img-circle person", :id => "trip1" )%>
-      </a>
-      <div id="demo2" class="collapse">
-        <p>精心指导</p>
-        <p>专业素质</p>
-        <p>成果导向</p>
-      </div>
+  <div class="col-md-4">
+    <p class="text-center"><strong>专业的教练团队</strong></p><br>
+    <%= image_tag("boy.jpg", :class => "img-circle person", :id => "trip1" )%>
+    <div>
+      <br>
+      <p>精心指导</p>
+      <p>专业素质</p>
+      <p>成果导向</p>
     </div>
+  </div>
 
-    <div class="col-md-4">
-      <p class="text-center"><strong>极致的贴心服务</strong></p><br>
-      <a href="#demo3" data-toggle="collapse">
-        <%= image_tag("severs.jpg", :class => "img-circle person", :id => "trip1" )%>
-      </a>
-      <div id="demo3" class="collapse">
-        <p>专人跟进</p>
-        <p>一对一私人定制</p>
-        <p>专属的私人菜谱</p>
-      </div>
+  <div class="col-md-4">
+    <p class="text-center"><strong>极致的贴心服务</strong></p><br>
+    <%= image_tag("severs.jpg", :class => "img-circle person", :id => "trip1" )%>
+    <div>
+      <br>
+      <p>专人跟进</p>
+      <p>一对一私人定制</p>
+      <p>专属的私人菜谱</p>
     </div>
-
   </div>
 
 </div>
 
 <!-- section3 -->
 <div class="bg-1">
-  <div class="container container_in_welcome">
-    <h3 class="text-center">热销课程</h3>
+  <div class="container box-welcome">
+    <h3 class="tagline">热销课程</h3>
     <p class="text-center">深受会员喜爱的明星课程<br> 欢迎体验 </p>
 
-    <div class=" text-center">
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag("card1.jpg", :style => "width:400 height:300" )%>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <%= image_tag("card1.jpg", :style => "width:400 height:300" )%>
 
-          <p><strong> 会员卡 </strong></p>
-          <p>可参加各种大课，尽享运动快乐</p>
-          <a class="btn btn-welcome" href="/products">购买</a>
-        </div>
+        <p><strong> 会员卡 </strong></p>
+        <p>可参加各种大课，尽享运动快乐</p>
+        <a class="btn btn-welcome" href="/products">购买</a>
       </div>
-
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag("onebyone.jpg", :style => "width:400 height:300" )%>
-          <p><strong>一对一私教</strong></p>
-          <p>专业指导，尊享极速健身</p>
-          <a class="btn btn-welcome" href="/products">购买</a>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag("yoga.jpg", :style => "width:400 height:300" )%>
-          <p><strong>瑜珈导师训练</strong></p>
-          <p> 精进技艺，让你与众不同</p>
-          <a class="btn btn-welcome" href="/products">购买</a>
-        </div>
-      </div>
-
     </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <%= image_tag("onebyone.jpg", :style => "width:400 height:300" )%>
+        <p><strong>一对一私教</strong></p>
+        <p>专业指导，尊享极速健身</p>
+        <a class="btn btn-welcome" href="/products">购买</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <%= image_tag("yoga.jpg", :style => "width:400 height:300" )%>
+        <p><strong>瑜珈导师训练</strong></p>
+        <p> 精进技艺，让你与众不同</p>
+        <a class="btn btn-welcome" href="/products">购买</a>
+      </div>
+    </div>
+
   </div>
+</div>
+
+<div class="container box-welcome">
+  <h3 class="tagline">听听他们 怎么说</h1>
+
+    <div class="col-md-6 landing-page-eva-style">
+      <div class="col-md-3 col-md-offset-1">
+        <br>
+        <%= image_tag("wuzhao.jpg", class: "img-circle img-responsive") %>
+      </div>
+      <div class="col-md-8">
+        <h5>Wuzhao</h5>
+        <p>
+          Fitness有齐全的器械设备，有较全的健身及娱乐项目，有专业的教练进行指导，有良好的健身氛围。
+          高素质的教学队伍保证了会员的科学训练，与许多志同道合的小伙伴一起脱胎换骨。
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-6 landing-page-eva-style">
+      <div class="col-md-3 col-md-offset-1">
+        <br>
+        <%= image_tag("RISA.jpg", class: "img-circle img-responsive") %>
+      </div>
+      <div class="col-md-8">
+        <h5>RISA</h5>
+        <p>健康生活理念已经越来越深入人心。
+          现在加入Fitness健身俱乐部，为自己的健康投资，是我实现自己健康生活最佳途径。
+        </p>
+      </div>
+    </div>
 </div>
 
 

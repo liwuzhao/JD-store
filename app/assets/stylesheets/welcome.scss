@@ -2,40 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// ---------carousel section1---------
 
-.carousel {
-  width:  100%;
-  margin: 0 auto;
-  height: 700px;
+.box-welcome {
+    padding: 70px 120px;
+    text-align: center;
 }
 
-.carousel img {
-    width: 100%; /* Set width to 100% */
-    margin: auto;
+.btn-welcome {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+// welcome
+.jumbotron {
+  background-image: image-url("test.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 700px;
 }
 
-.carousel-caption {
-  margin-bottom: 200px;
-    h3 {
-      color: #fff !important;
-    }
-  }
-@media (max-width: 600px) {
-    .carousel-caption {
-        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
-    }
+
+ .title {
+  font-size: 45px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 220px;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.slogan {
+  text-align: center;
+  color: white;
+}
+
+.lead {
+  margin-top: 30px;
+  text-align: center;
 }
 
 
 //-----------section2-------------
-.container_in_welcome {
-    padding: 80px 120px;
-}
 
 .person {
     border: 10px solid transparent;
-    margin-bottom: 25px;
     width: 80%;
     height: 80%;
     opacity: 0.9;
@@ -51,40 +63,12 @@
     color: #bdbdbd;
 }
 .bg-1 h3 {color: #fff;}
-.bg-1 p {font-style: italic;}
-
-.list-group-item:first-child {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-}
-
-.list-group-item:last-child {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-/* Remove border and add padding to thumbnails */
-.thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-}
 
 .thumbnail p {
     margin-top: 15px;
     color: #555;
 }
 
-/* Black buttons with extra padding and without rounded borders */
-.btn-welcome {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #f1f1f1;
-    border-radius: 0;
-    transition: .2s;
-}
-
-/* On hover, the color of .btn will transition to white with black text */
 .btn-welcome:hover, .btn:focus {
     border: 1px solid #333;
     background-color: #fff;
@@ -93,6 +77,26 @@
 
 
 // 用户反馈
+
+.tagline {
+  text-align: center;
+  color: gray;
+  letter-spacing: 2px;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.landing-page-eva-style {
+  margin-top: 40px;
+  padding-bottom: 110px;
+  text-align: justify;
+  line-height: 25px;
+  color: gray;
+  img {
+    height: 110px;
+    width: 110px;
+  }
+}
+
 .short-line {
   display: block;
   background: #35CCC6;
@@ -108,11 +112,12 @@
   position: relative;
 }
 
-  .bottom {
+//
+.bottom {
   text-align: center;
-  height: 250px;
-  background: image_url("bottom.jpg") no-repeat scroll top center/ cover;
-    a{
-      margin-top: 150px;
-    }
+  height: 200px;
+  background: image_url("bottom1.jpg") no-repeat scroll top center/ cover;
+  a{
+    margin-top: 100px;
   }
+}
