@@ -2,9 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.box-welcome {
+    padding: 70px 120px;
+    text-align: center;
+}
+
+.btn-welcome {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
 // welcome
 .jumbotron {
-  background-image: image-url("banner-3.jpg");
+  background-image: image-url("test.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 700px;
@@ -32,13 +45,9 @@
 
 
 //-----------section2-------------
-.container_in_welcome {
-    padding: 80px 120px;
-}
 
 .person {
     border: 10px solid transparent;
-    margin-bottom: 25px;
     width: 80%;
     height: 80%;
     opacity: 0.9;
@@ -55,32 +64,11 @@
 }
 .bg-1 h3 {color: #fff;}
 
-/* Remove border and add padding to thumbnails */
-.thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-    img{
-      width: 500px;
-      height: 500px;
-    }
-}
-
 .thumbnail p {
     margin-top: 15px;
     color: #555;
 }
 
-/* Black buttons with extra padding and without rounded borders */
-.btn-welcome {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #f1f1f1;
-    border-radius: 0;
-    transition: .2s;
-}
-
-/* On hover, the color of .btn will transition to white with black text */
 .btn-welcome:hover, .btn:focus {
     border: 1px solid #333;
     background-color: #fff;
@@ -89,6 +77,26 @@
 
 
 // 用户反馈
+
+.tagline {
+  text-align: center;
+  color: gray;
+  letter-spacing: 2px;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.landing-page-eva-style {
+  margin-top: 40px;
+  padding-bottom: 110px;
+  text-align: justify;
+  line-height: 25px;
+  color: gray;
+  img {
+    height: 110px;
+    width: 110px;
+  }
+}
+
 .short-line {
   display: block;
   background: #35CCC6;
@@ -104,11 +112,12 @@
   position: relative;
 }
 
-  .bottom {
+//
+.bottom {
   text-align: center;
-  height: 250px;
-  background: image_url("bottom.jpg") no-repeat scroll top center/ cover;
-    a{
-      margin-top: 150px;
-    }
+  height: 200px;
+  background: image_url("bottom1.jpg") no-repeat scroll top center/ cover;
+  a{
+    margin-top: 100px;
   }
+}
