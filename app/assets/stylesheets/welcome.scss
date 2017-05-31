@@ -2,26 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// ---------carousel section1---------
-
-.carousel {
-  width:  100%;
-  margin: 0 auto;
-  height: 700px;
+// welcome
+.jumbotron {
+  background-image: image-url("header1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 700px;
 }
 
-.carousel img {
-    width: 100%; /* Set width to 100% */
-    margin: auto;
+
+ .title {
+  font-size: 45px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 220px;
+  margin-bottom: 20px;
+  color: white;
 }
 
-.carousel-caption {
-  margin-bottom: 200px;
-    h3 {
-      color: #fff !important;
-    }
-  }
+.slogan {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: white;
+}
 
+.lead {
+  margin-bottom: 60px;
+  text-align: center;
+}
 
 
 //-----------section2-------------
