@@ -1,8 +1,9 @@
-<h1 class="text-center">产品列表</h1><br>
-
-<div class="product-box">
-</div>
-
+<% if @products.blank?%>
+  <div>
+    <h2 class="no-collection">抱歉，没有找到对应的搜索结果，请重新搜索。 <span class="fa fa-frown-o"></span></h2>
+  </div>
+<% else %>
+  <h1 class="text-center">产品列表</h1><br>
   <div class="container">
     <div class="productList">
       <% @products.each do |product| %>
@@ -19,3 +20,4 @@
       <% end %>
     </div>
   </div>
+<% end %>
