@@ -1,42 +1,11 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="dropdown  pull-right">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-          排序
-          <span class="caret"></span>
-        </button>
-        <ul class="reorder dropdown-menu ">
-          <li><%= link_to("综合排序", products_path) %></li>
-          <li><%= link_to("价格从低到高", products_path(category: @category, :order => "by_lower_price")) %></li>
-          <li><%= link_to("价格从高到低", products_path(category: @category, :order => "by_upper_price")) %></li>
-        </ul>
-    </div>
-  </div>
-
-
-
-
-  <div class="productList">
-    <% @products.each do |product| %>
-      <div class="col-md-3 productList-item">
-        <%= link_to product_path(product) do %>
-          <% if product.image.present? %>
-            <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-          <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-          <% end %>
-        <% end %>
-        <p><%= product.title %> ￥<%= product.price %></p>
-      </div>
-    <% end %>
-  </div>
-
-</div> -->
-
 
 
 <div class="product-box">
   <div class="container">
+
+    <%= image_tag("bottom1.jpg", class: "background-image") %>
+
+    <%= render "products/menu" %>
 
     <!--=== 商品列表 ===-->
     <div class='row'>
@@ -52,7 +21,7 @@
           <% end %>
           <div class="product-info">
             <p><%= link_to(product.title , product_path(product)) %></p>
-            <p><%= product.price %></p>
+            <p>¥ <%= product.price %></p>
           </div>
         </div>
       <% end %>

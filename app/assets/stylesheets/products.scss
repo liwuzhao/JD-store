@@ -3,23 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*商品列表*/
-// .productList {
-//   margin: 20px auto;
-//   width: 1200px;
-//   overflow: hidden;
-// }
-//
-// .productList-item {
-//   float: left;
-//   margin-bottom: 50px;
-//   p{
-//     margin-top: -10px;
-//   }
-//
-// }
 
-
-/*===== Product 產品 =====*/
 .product-box {
   text-align: center;
   padding: 0 0 100px 0;
@@ -33,40 +17,29 @@
     color: #666 !important;
   }
 
-  .btn {
+  .btn-menu {
     background-color: #fff;
     margin: 0 10px 0 10px;
-  }
-
-  .btn:hover,
-  .btn:focus {
-    color: #eb5424;
-  }
-
-  .dropdown-menu {
-    li {
-      min-width: 200px;
-      padding: 2.5px 0 2.5px 0;
-    }
-
-    li:hover {
-      a {
-        background-color: #f0f0f0 !important;
-      }
+    a{
+      text-decoration: none;
     }
   }
 
-  a:hover {
-    color: #eb5424 !important;
-
-    img {
-      opacity: 0.75;
-    }
+  .btn-reorder {
+    transition: .2s;
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+  }
+  .btn-reorder:hover, .btn:focus {
+    background-color: #333;
+    color: #f1f1f1;
   }
 
-  .search-error {
-    margin: 150px 0 150px 0;
+  .dropdown-menu{
+
   }
+
 
   /*===== 產品列表內容設置 =====*/
   .product-content {
@@ -78,101 +51,18 @@
     h2 {
       margin-top: 150px;
     }
-
+    margin-bottom: 30px;
 
   }
 
 
 
   .product-info {
-    text-align: left;
+    text-align: center;
     line-height: 14px;
     min-height: 55px;
+    font-size: 16px;
   }
 
-  /*===== 產品路徑設置 =====*/
-  .path-box {
-    text-align: left;
-    height: 20px;
 
-    .right-box {
-      button {
-        margin: -15px 0 -15px 0;
-        padding: 7.5px 10px 7.5px 10px;
-        border: 2px solid #666;
-        color: #333;
-      }
-
-      button:focus {
-        background-color: #fff;
-        color: #333;
-      }
-
-      ul {
-        margin-top: 15px;
-      }
-    }
-  }
-
-  /*===== 產品顏色設置 =====*/
-  .color-circle {
-    button {
-      border: none;
-      outline: none;
-      border-radius: 25px;
-      color: #ffffff;
-      padding: 10px 10px 10px 10px;
-      margin: 0px 2px 0px 2px;
-    }
-
-    button:active {
-      outline: none; //點擊不顯示外框
-    }
-  }
-
-  /*===== 精選商品圖示 =====*/
-  .chosen-box {
-    position: absolute;
-    border-radius: 45px;
-    top: 22px;
-    left: 27px;
-    width: 45px;
-    height: 45px;
-    padding-top: 11px;
-    color: #fff;
-    background-color: #02061A;
-    border: 2.5px solid #999;
-    opacity: 0.85;
-    z-index: 1;
-  }
-
-  .location {
-    top: 15px;
-    left: 30px;
-  }
-}
-
-/*===== 產品信息區塊設置 =====*/
-.product-show {
-  margin: 0 0 100px 0;
-
-  /*===== 產品圖片區塊設置=====*/
-  .product-image {
-    .image-box {
-      padding: 7.5px;
-    }
-
-    .main-image {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .list-image {
-      width: 100%;
-    }
-
-    .list-image-active {
-      box-shadow: 1.5px 1.5px 1.5px #666;
-    }
-  }
 }
