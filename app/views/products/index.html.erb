@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="dropdown  pull-right">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -31,4 +31,34 @@
     <% end %>
   </div>
 
+</div> -->
+
+
+
+<div class="product-box">
+  <div class="container">
+
+    <!--=== 商品列表 ===-->
+    <div class='row'>
+      <% @products.each_with_index do |product, index| %>
+        <div class='col-xs-12 col-sm-4 col-md-3 product-content'>
+          <%= link_to product_path(product) do %>
+            <!-- 商品圖片 -->
+            <% if product.image.present? %>
+              <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+            <% end %>
+          <% end %>
+          <div class="product-info">
+            <p><%= link_to(product.title , product_path(product)) %></p>
+            <p><%= product.price %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+
+  </div>
 </div>
