@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+
+
+ul,li{
+    padding:0;
+    margin:0;
+}
+
+footer
+{
+  background-color:#333333;
+  min-height:200px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  img {
+    width: 15%;
+  }
+}
+.footer-col {
+  margin-top:50px;
+  .introduce{
+    letter-spacing: 2px;
+  }
+}
+.logofooter { margin-bottom:10px; font-size:21px; font-weight:700; color:#d9d6d6; letter-spacing: 2px;}
+
+.footer-col p { color:#d9d6d6; font-size:12px; font-family: 'Open Sans', sans-serif; margin-bottom:15px;}
+.footer-col p i { width:20px; color:#999;}
+
+ .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px; letter-spacing: 3px;}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    background-color: blue;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    padding-top: 7px;
+    border-radius: 50%;
+}
+.footer-social li{
+    float:left;
+    list-style-type:none;
+}
+ .linked-in{
+     background-color:#007bb6;
+ }
+ .facebook{
+     background-color:#3b5998;
+ }
+ .twitter{
+     background-color:#1da1f2;
+ }
+ .google{
+     background-color:#f63e28;
+ }
