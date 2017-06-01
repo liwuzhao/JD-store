@@ -3,17 +3,66 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*商品列表*/
-.productList {
-  margin: 20px auto;
-  width: 1200px;
-  overflow: hidden;
-}
 
-.productList-item {
-  float: left;
-  margin-bottom: 50px;
-  p{
-    margin-top: -10px;
+.product-box {
+  text-align: center;
+  padding: 0 0 100px 0;
+
+  .background-image {
+    width: 100%;
+    margin-bottom: 20px;
   }
+
+  a {
+    color: #666 !important;
+  }
+
+  .btn-menu {
+    background-color: #fff;
+    margin: 0 10px 0 10px;
+    a{
+      text-decoration: none;
+    }
+  }
+
+  .btn-reorder {
+    transition: .2s;
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+  }
+  .btn-reorder:hover, .btn:focus {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+
+  .dropdown-menu{
+
+  }
+
+
+  /*===== 產品列表內容設置 =====*/
+  .product-content {
+    img {
+      width: 100%;
+      margin: 7.5px auto 7.5px auto;
+    }
+
+    h2 {
+      margin-top: 150px;
+    }
+    margin-bottom: 30px;
+
+  }
+
+
+
+  .product-info {
+    text-align: center;
+    line-height: 14px;
+    min-height: 55px;
+    font-size: 16px;
+  }
+
 
 }

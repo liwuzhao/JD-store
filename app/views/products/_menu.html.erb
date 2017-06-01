@@ -1,0 +1,34 @@
+<div class="btn-group">
+
+  <button class='btn btn-menu' type='button'>
+    <%= link_to("所有产品", products_path) %>
+  </button>
+  <% Category.all.each do |category| %>
+    <div class='btn-group clearfix'>
+      <button class='btn btn-menu' type='button'>
+        <%= link_to(category.name, products_path(category: category)) %>
+      </button>
+    </div>
+  <% end %>
+
+</div>
+
+
+<div class="dropdown  pull-right">
+    <button class="btn btn-reorder dropdown-toggle" type="button" data-toggle="dropdown">
+      <% if params[:order].present? %>
+        <%= params[:order] %>
+      <% else %>
+        综合排序
+      <% end %>
+      <span class="caret"></span>
+    </button>
+    <ul class="reorder dropdown-menu ">
+      <li><%= link_to("综合排序", products_path) %></li>
+      <li><%= link_to("价格从低到高", products_path(category: @category, :order => "价格从低到高")) %></li>
+      <li><%= link_to("价格从高到低", products_path(category: @category, :order => "价格从高到低")) %></li>
+    </ul>
+</div>
+
+
+<br><br>

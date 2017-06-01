@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
     end
 
     @products = case params[:order]
-        when 'by_lower_price'
+        when '价格从低到高'
           @products.order('price ASC')
-        when 'by_upper_price'
+        when '价格从高到低'
           @products.order('price DESC')
         else
           @products.order("position ASC")
