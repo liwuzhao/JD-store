@@ -5,7 +5,9 @@
 .shopping-cart {
   width: 100%;
 }
-
+.cart-title{
+  margin-left: 15px;
+}
 .shopping-cart .item {
   position: relative;
   display: table;
@@ -129,7 +131,7 @@
  }
 
  .cart-quantity-actions {
-   padding: 2.5px 10px 2.5px 10px;
+   padding: 1px 10px;
    border: 1px solid #ccc;
    border-radius: 2.5px;
    color: gray;
