@@ -17,7 +17,7 @@
 }
 // welcome
 .jumbotron {
-  background-image: image-url("test.jpg");
+  background-image: image-url("test1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 700px;
@@ -36,6 +36,7 @@
 .slogan {
   text-align: center;
   color: white;
+
 }
 
 .lead {
@@ -50,10 +51,10 @@
     border: 10px solid transparent;
     width: 80%;
     height: 80%;
-    opacity: 0.9;
+    opacity: 1;
 }
 .person:hover {
-    border-color: #f1f1f1;
+    border-color: 0;
 }
 
 
@@ -115,9 +116,9 @@
 //
 .bottom {
   text-align: center;
-  height: 200px;
-  background: image_url("bottom1.jpg") no-repeat scroll top center/ cover;
+  height: 250px;
+  background: image_url("shutt1.jpg") no-repeat scroll top center/ cover;
   a{
-    margin-top: 100px;
+    margin-top: 50px;
   }
 }
