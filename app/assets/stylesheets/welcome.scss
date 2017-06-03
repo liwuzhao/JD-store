@@ -17,7 +17,7 @@
 }
 // welcome
 .jumbotron {
-  background-image: image-url("test1.jpg");
+  background-image: image-url("header1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 700px;
@@ -51,10 +51,7 @@
     border: 10px solid transparent;
     width: 80%;
     height: 80%;
-    opacity: 1;
-}
-.person:hover {
-    border-color: 0;
+    opacity: 0.9;
 }
 
 
@@ -83,10 +80,10 @@
   text-align: center;
   color: gray;
   letter-spacing: 2px;
-  font-size: 26px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
-.landing-page-eva-style {
+.feedback {
   margin-top: 40px;
   padding-bottom: 110px;
   text-align: justify;
@@ -95,6 +92,9 @@
   img {
     height: 110px;
     width: 110px;
+  }
+  p {
+    letter-spacing: 1px;
   }
 }
 
@@ -117,8 +117,8 @@
 .bottom {
   text-align: center;
   height: 250px;
-  background: image_url("shutt1.jpg") no-repeat scroll top center/ cover;
+  background: image_url("bottom1.jpg") no-repeat scroll top center/ cover;
   a{
-    margin-top: 50px;
+    margin-top: 120px;
   }
 }

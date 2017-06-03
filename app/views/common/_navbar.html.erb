@@ -1,5 +1,5 @@
-<!-- 判断是否在首页,首页使用 id="navbar" -->
-<% if current_page?('/') %>
+<!-- 判断是否在首页、注册、登录页面，使用 id="navbar" -->
+<% if current_page?('/') || current_page?('/users/sign_up') || current_page?('/users/sign_in')%>
   <nav class="navbar navbar-default navbar-fixed-top" id="navbar" style="padding-left:15%" role="navigation">
 <% else %>
 <!-- 非首页使用 class="show_bgcolor" -->

@@ -1,4 +1,4 @@
-<div class="row user_setup" style="margin-bottom:100px">
+<div class="row user_setup">
   <div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3 user_setup_content">
     <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-1">
     <h2><sapn class="fa fa-user-circle-o"></sapn> 帐号注册</h2>
@@ -6,7 +6,7 @@
     <div class="form-inputs">
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :nickname, required: true, label:"昵称" %>
-      <%= f.input :truename, label:"真实姓名" %>
+      <!-- <%= f.input :truename, label:"真实姓名" %> -->
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label:"密码" %>
       <%= f.input :password_confirmation, required: true , label:"确认密码"%>
     </div>
@@ -14,7 +14,6 @@
       <%= f.button :submit, "注册",class: "btn btn-primary" %>
     </div>
     <% end %>
-    <hr />
       <div class="account">
         <%= link_to "已有帐号，立即登录", new_session_path(resource_name) %>
       </div>

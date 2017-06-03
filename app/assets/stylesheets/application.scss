@@ -28,7 +28,6 @@
     font-family: 'Noto Sans SC', sans-serif;            // google思源黑简作为主字体
     color: gray;
     margin-bottom: 200px;
-
   }
 
   //  to top
@@ -171,15 +170,18 @@
 
   /*===== 登录 ====*/
   .user_setup {
-    height: 100% ;
-    background-image: image-url("header.png");
+    background-image: image-url("devise.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 800px;
+    margin-top: -100px;
+
   }
 
   .user_setup_content {
     background: #fff;
-    margin-top: 50px;
+    margin-top: 150px;
+    margin-bottom: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
     box-shadow: 1px 3px 5px #333;
@@ -197,7 +199,6 @@
 
     .form-inputs {
       margin-top: 25px;
-      // width: 130%;
     }
 
     .form-actions {
