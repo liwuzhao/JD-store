@@ -35,7 +35,11 @@
                     <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
                   </td>
                   <td>
-                    <%= cart_item.product.price %>
+               			<% if cart_item.product.discount.present? %>
+                      <%= cart_item.product.price * cart_item.product.discount / 100 %>
+                    <% else %>
+                      <%= cart_item.product.price %>
+                    <% end %>
                   </td>
                   <td>
                     <%= cart_item.quantity %>
