@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require social-share-button
+//= require social-share-button/wechat
 //= require_tree .
 
 

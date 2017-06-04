@@ -61,6 +61,7 @@ gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
 gem 'jquery-turbolinks'
+gem 'social-share-button'
 
 
 
