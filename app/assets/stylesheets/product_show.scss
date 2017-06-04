@@ -80,9 +80,8 @@
   }
 }
 .show-favorit{
-  margin-top:15px;
-  margin-left:8px;
-
+  margin-top:10px;
+  margin-left: -10px;
   a {
     margin-left:20px;
     font-size: 20px;
@@ -166,4 +165,8 @@
 }
 .tab-content{
   min-height: 300px;
+}
+.share{
+  margin-top:10px;
+  margin-left: 10px;
 }

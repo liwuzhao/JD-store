@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-4 col-sm-offset-2">
+  <div class="col-sm-4 col-sm-offset-2" style="margin-top:18px">
     <% if @product.image.present? %>
       <%= image_tag(@product.image.medium.url, class: "thumbnail img-responsive") %>
     <% else %>
@@ -41,10 +41,22 @@
     </div>
 
 
-    <div class="show-favorit" id="product-show-favorite<%=@product.id%>">
+    <div class="show-favorit">
         <%= render_product_collection_state(@product) %>
         收藏人气(<%= @product.collectors.count %>)
     </div>
+
+    <div class="row share">
+      <div class="col-md-3" style="margin-left:10px">
+        <p><i class="fa fa-share-alt" aria-hidden="true"></i> 分享 </p>
+      </div>
+
+      <div class="col-md-3" style="margin-left:-120px; margin-top:2px">
+        <%= social_share_button_tag(@product.title) %>
+      </div>
+    </div>
+
+
   </div>
 
 </div>

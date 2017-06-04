@@ -12,10 +12,13 @@
  *
  *= require_tree .
  *= require_self
+
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+ @import "social-share-button";
+
 
  @import url('https://fonts.googleapis.com/earlyaccess/notosanssc.css');   //引入google思源黑简在线字体 需要使用VPN才可生效
 
