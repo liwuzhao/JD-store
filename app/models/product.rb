@@ -35,7 +35,7 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :quantity, presence: true
-
+  validates_numericality_of :discount, :greater_than => 0, :less_than => 100, :allow_blank => true
 
   def publish!
     self.is_public = true

@@ -10,7 +10,14 @@
   <div class="col-sm-6 col-md-offset-2">
     <h3><%= simple_format(@product.title) %></h3>
     <div class="show-service">
-      <p class="price">售价 <span class="rmb">￥</span><span class="price"><%= @product.price %></span></p>
+      <p class="price">售价 <span class="rmb">￥</span>
+        <% if @product.discount.present? && @product.quantity > 0 %>
+          <span class="price"><s><%= @product.price %></s></span>
+          <span class="price" style="margin-left:10px;"><%= @product.price = @product.price * @product.discount/100 %></span>
+        <% else %>
+          <span class="price"><%= @product.price %></span>
+        <% end %>
+      </p>
       <p class="service">服务 <span class="service-detail">专业教练指导 | 专业的器械设备 | 质量保证</span></p>
     </div>
     <div class="show-quantity">

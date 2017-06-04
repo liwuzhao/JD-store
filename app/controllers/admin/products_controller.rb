@@ -60,31 +60,28 @@ class Admin::ProductsController < ApplicationController
     redirect_to :back
   end
 
-   def move_down
-     @product = Product.find(params[:id])
-     @product.move_lower
-     redirect_to :back
-   end
+  def move_down
+    @product = Product.find(params[:id])
+    @product.move_lower
+    redirect_to :back
+  end
 
-   def hide
-     @product = Product.find(params[:id])
-     @product.hide!
-     redirect_to :back
+  def hide
+    @product = Product.find(params[:id])
+    @product.hide!
+    redirect_to :back
+  end
 
-   end
-
-   def publish
-     @product = Product.find(params[:id])
-     @product.publish!
-     redirect_to :back
-
-   end
-
+  def publish
+    @product = Product.find(params[:id])
+    @product.publish!
+    redirect_to :back
+  end
 
   private
 
   def product_params
-    params.require(:product).permit(:description,:title,:quantity,:price,:image,:is_public)
+    params.require(:product).permit(:description,:title,:quantity,:price,:image,:is_public,:discount)
   end
 
 end
