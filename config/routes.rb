@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :admin do
+    resources :categories
     resources :products do
       member do
         patch :move_up
@@ -20,8 +21,7 @@ Rails.application.routes.draw do
         post :shipped
         post :return
       end
-    end
-    resources :categories
+     end
   end
 
   resources :products do

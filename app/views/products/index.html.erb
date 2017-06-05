@@ -8,7 +8,7 @@
     <!--=== 商品列表 ===-->
     <div class='row'>
       <% @products.each_with_index do |product, index| %>
-        <div class='col-xs-12 col-sm-4 col-md-3 product-content'>
+        <div class='col-xs-3 col-md-3 product-content'>
           <%= link_to product_path(product) do %>
             <!-- 商品圖片 -->
             <% if product.image.present? %>
