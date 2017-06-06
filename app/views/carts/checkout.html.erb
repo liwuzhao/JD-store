@@ -1,21 +1,21 @@
 <div class="container">
-  <h2 style="margin-left:22px">结帐</h2>
-  <p style="margin-left:22px">本次下单共
+  <h2 style="margin-left:30px">结帐</h2>
+  <p style="margin-left:30px">本次下单共
     <span class="badge" style="background-color: #77cde3;font-size:13px;vertical-align:center;">
       <%= current_cart.products.count %>
     </span>  个商品。
   </p>
   <br>
-  <div class="col-md-12">
+  <div class="col-md-12 col-xs-12">
 
     <%= simple_form_for @order do |f| %>
-      <div class="col-md-8">
+      <div class="col-md-8 col-xs-12">
         <legend>订购人信息</legend>
-          <div class="form-group col-lg-6">
+          <div class="form-group col-lg-6 col-xs-6">
             <%= f.input :billing_name, input_html: {value: current_user.truename}, :label => "订购人姓名" %>
           </div>
 
-          <div class="form-group col-lg-6">
+          <div class="form-group col-lg-6 col-xs-6">
             <%= f.input :phone_numbers, input_html: {value: current_user.numbers }, :label => "联系电话" %>
           </div>
 
@@ -49,9 +49,8 @@
             </tbody>
           </table>
       </div>
-
-      <!-- Sidebar -->
-      <div class="col-md-3 col-md-offset-1 col-sm-4">
+      
+      <div class="col-md-3 col-md-offset-1 col-xs-12">
         <aside>
           <h3 class="toolbar-title">购物车总价:</h3>
           <h4 class="amount">¥ <%= render_cart_total_price(current_cart) %></h4>
@@ -60,7 +59,7 @@
           <%= f.submit "确认下单", class: "btn btn-danger btn-block", data: {disable_with: "Submitting..."} %>
         </aside>
       </div>
-      <!-- Sidebar -->
+
     <% end %>
 
     <hr>
