@@ -65,5 +65,6 @@ Rails.application.routes.draw do
     resources :users
   end
 
+    resources :clubs  #社群
 
 end
