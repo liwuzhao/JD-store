@@ -1,4 +1,7 @@
+<!-- 上架状态 -->
+<% if @product.is_public%>
 <div class="row">
+
   <div class="col-md-4 col-md-offset-2 col-xs-8" style="margin-top:18px">
     <% if @product.image.present? %>
       <%= image_tag(@product.image.medium.url, class: "thumbnail img-responsive") %>
@@ -105,3 +108,7 @@
      </div>
   </div>
 </div>
+<% else %>
+<h2 class="no-collection">该商品已下架 <span class="fa fa-frown-o"></span></h2>
+<p class="text-center"><a class="btn btn-lg btn-welcome" href="/products">选购其他</a></p>
+<% end %>

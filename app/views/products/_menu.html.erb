@@ -1,12 +1,7 @@
 <div class="btn-group">
-
-  <div class='dropdown btn-group clearfix'>
-    <%= link_to products_path, class: 'btn' do %>
-      所有产品 #
-    <% end %>
-  </div>
-
-  <!--=== 類型選單 ===-->
+  <button class='btn btn-menu' type='button'>
+    <%= link_to("所有产品", products_path) %>
+  </button>
   <% Category.all.each do |category| %>
     <div class='btn-group clearfix'>
       <button class='btn btn-menu' type='button'>
@@ -14,7 +9,6 @@
       </button>
     </div>
   <% end %>
-
 </div>
 <hr/>
 
