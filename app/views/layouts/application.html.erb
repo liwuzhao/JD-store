@@ -10,13 +10,15 @@
   </head>
 
   <body>
-      <div class="container-fluid navbar_fix">
-        <div class="row">
-            <%= render "common/flashes" %>
-            <%= render "common/navbar" %>
-        </div>
-        <%= yield %>
+     <div class="content">
+        <div class="container-fluid navbar_fix">
+          <div class="row">
+              <%= render "common/flashes" %>
+              <%= render "common/navbar" %>
+          </div>
+          <%= yield %>
 
+        </div>
      </div>
 
      <%= render "common/footer" %>

@@ -39,7 +39,7 @@
                 <%= link_to("+", add_quantity_cart_item_path(cart_item.product_id), class: "cart-quantity-actions", method: :post) %>
               </div>
 
-              <div class="row">
+              <div class="cart-delete">
                   <%= link_to cart_item_path(cart_item.product_id), class: "item-remove btn btn-xs  btn-danger", :data => { :confirm => "确认要将该商品移出购物车吗？" } ,method: :delete do %>
                   <i class="fa fa-trash-o fa-fw"></i>
                   <% end %>
