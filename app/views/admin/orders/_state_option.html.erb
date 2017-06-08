@@ -10,16 +10,11 @@
     <%= link_to("取消订单",
                 cancel_admin_order_path(order),
                 class: "btn btn-default btn-sm", method: :post) %>
-    <%= link_to("出货",
-                ship_admin_order_path(order),
+    <%= link_to("激活",
+                activate_admin_order_path(order),
                 class: "btn btn-default btn-sm", method: :post) %>
 
-  <% when "shipping" %>
-    <%= link_to("设为已出货",
-                shipped_admin_order_path(order),
-                class: "btn btn-default btn-sm", method: :post) %>
-
-  <% when "shipped" %>
+  <% when "activated" %>
     <%= link_to("退货",
                 return_admin_order_path(order),
                 class: "btn btn-default btn-sm", method: :post) %>

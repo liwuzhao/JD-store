@@ -13,18 +13,18 @@ class Admin::OrdersController < ApplicationController
     @product_lists = @order.product_lists
   end
 
-  def ship
+  def activate
     @order = Order.find(params[:id])
-    @order.ship!
-    OrderMailer.notify_ship(@order).deliver!
+    @order.activate!
+    OrderMailer.notify_activate(@order).deliver!
     redirect_to :back
   end
 
-  def shipped
-    @order = Order.find(params[:id])
-    @order.deliver!
-    redirect_to :back
-  end
+  # def shipped
+  #   @order = Order.find(params[:id])
+  #   @order.deliver!
+  #   redirect_to :back
+  # end
 
   def cancel
     @order = Order.find(params[:id])

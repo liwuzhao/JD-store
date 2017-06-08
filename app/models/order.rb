@@ -45,8 +45,8 @@ class Order < ApplicationRecord
   aasm do
     state :order_placed, initial: true #下单
     state :paid #已付款
-    state :shipping #配送中
-    state :shipped  #已送达
+    state :activated #已激活
+
     state :order_cancelled  #申请取消
     state :good_returned    #退货
 
@@ -55,16 +55,12 @@ class Order < ApplicationRecord
       transitions from: :order_placed, to: :paid
     end
 
-    event :ship do
-      transitions from: :paid,         to: :shipping
-    end
-
-    event :deliver do
-      transitions from: :shipping,     to: :shipped
+    event :activate do
+      transitions from: :paid,     to: :activated
     end
 
     event :return_good do
-      transitions from: :shipped,      to: :good_returned
+      transitions from: :activated,      to: :good_returned
     end
 
     event :cancel_order do
