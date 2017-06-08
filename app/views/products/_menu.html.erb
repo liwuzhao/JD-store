@@ -1,7 +1,12 @@
 <div class="btn-group">
-  <button class='btn btn-menu' type='button'>
-    <%= link_to("所有产品", products_path) %>
-  </button>
+
+  <div class='dropdown btn-group clearfix'>
+    <%= link_to products_path, class: 'btn' do %>
+      所有产品 #
+    <% end %>
+  </div>
+
+  <!--=== 類型選單 ===-->
   <% Category.all.each do |category| %>
     <div class='btn-group clearfix'>
       <button class='btn btn-menu' type='button'>
@@ -9,24 +14,44 @@
       </button>
     </div>
   <% end %>
+
 </div>
+<hr/>
+
+<div class="path-box">
+  <!--=== 產品頁面路徑 ===-->
+  <div class="left-box">
+    <%= link_to("Fitness", products_path) %>
+
+    <% if params[:category].present? %>
+    / <a href="products?"></a> <a href="products?category=<%= @category.id %>"><%= @category.name %></a>
 
 
-<div class="dropdown pull-right ">
-    <button class="btn btn-reorder dropdown-toggle" type="button" data-toggle="dropdown">
+    <% end %>
+  </div>
+
+
+  <!--=== 排序選單 ===-->
+  <div class="right-box">
+    <div class="dropdown btn-group clearfix">
       <% if params[:order].present? %>
-        <%= params[:order] %>
+        <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= params[:order] %> <span class="caret"></span>
+        </button>
       <% else %>
-        综合排序
+        <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+           综合排序 <span class="caret"></span>
+        </button>
       <% end %>
-      <span class="caret"></span>
-    </button>
-    <ul class="reorder dropdown-menu ">
-      <li><%= link_to("综合排序", products_path) %></li>
-      <li><%= link_to("价格从低到高", products_path(category: @category, :order => "价格从低到高")) %></li>
-      <li><%= link_to("价格从高到低", products_path(category: @category, :order => "价格从高到低")) %></li>
-    </ul>
+
+      <!-- 選項：列出排序方式 -->
+      <ul class="reorder dropdown-menu ">
+        <li><%= link_to("综合排序", products_path) %></li>
+        <li><%= link_to("价格从低到高", products_path(category: @category, :order => "价格从低到高")) %></li>
+        <li><%= link_to("价格从高到低", products_path(category: @category, :order => "价格从高到低")) %></li>
+      </ul>
+    </div>
+  </div>
+
 </div>
-
-
-<br><br>
+<br/>
