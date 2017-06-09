@@ -30,14 +30,8 @@ class User < ApplicationRecord
   has_many :orders
   has_many :comments
 
-  has_many :favours
-  has_many :collections, through: :favours, source: :product
-
   has_many :clubs
   has_many :club_reviews, dependent: :destroy
-
-  has_many :club_collections #收藏社群
-  has_many :participated_clubs, through: :club_collections, source: :club
 
   has_one :cart
 
@@ -48,7 +42,10 @@ class User < ApplicationRecord
     is_admin
   end
 
-# 收藏商品
+  # 收藏商品
+  has_many :favours
+  has_many :collections, through: :favours, source: :product
+
   def is_collect_of?(product)
     collections.include?(product)
   end
@@ -61,7 +58,10 @@ class User < ApplicationRecord
     collections.delete(product)
   end
 
-# 收藏社群
+  # 收藏社群
+  has_many :club_collections #收藏社群
+  has_many :participated_clubs, through: :club_collections, source: :club
+
   def is_club_member_of?(club)
     participated_clubs.include?(club)
   end
@@ -73,5 +73,19 @@ class User < ApplicationRecord
   def quit_club_collection!(club)
     participated_clubs.delete(club)
   end
+
+  # ---社群帖子点赞三方关系代码块---
+
+  has_many :club_votes                                    #社群帖子点赞关系
+  has_many :participated_club_votes, through: :club_votes, source: :club
+
+  def is_club_vote_member_of?(club)
+    participated_club_votes.include?(club)
+  end
+
+  def join_club_vote!(club)
+    participated_club_votes << club
+  end
+
 
 end

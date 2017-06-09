@@ -74,9 +74,20 @@ class ClubsController < ApplicationController
     redirect_to :back
   end
 
+  # 投票功能
+  def upvote
+    @club = Club.find(params[:id])
+
+    if !current_user.is_club_vote_member_of?(@club)
+      current_user.join_club_vote!(@club)
+    else
+      flash[:notice] = "这篇帖子 你已经点过赞"
+    end
+    redirect_to :back
+  end
+
   #个人中心
   def clubuser
-    @club_hots = Club.all.paginate(:page => params[:page], :per_page => 10).sort_by{|club| -club.club_reviews.count}
   end
 
 

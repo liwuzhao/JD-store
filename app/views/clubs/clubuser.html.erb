@@ -47,10 +47,16 @@
                       <tr>
                         <td><%= link_to(club.title, club_path(club)) %></td>
                         <td><%= club.club_reviews.count %></td>
+                        <td><%= club.club_votes.count %></td>
                         <td><%= club.club_collections.count %></td>
                         <td>
-                          <%= link_to("编辑", edit_club_path(club), class: "btn btn-xs btn-default" ) %>
-                          <%= link_to("删除", club_path(club), method: :delete, class: "btn btn-xs btn-default" ) %>
+                          <%= link_to edit_club_path(club),class:"btn btn-xs btn-warning" do %>
+                            <i class="fa fa-pencil fa-fw"></i>
+                          <% end %>
+                          <%= link_to club_path(club), class:"btn btn-xs  btn-danger" ,:method => :delete, :data => { :confirm => "Are you sure?" }  do%>
+                            <i class="fa fa-trash-o fa-fw"></i>
+                          <% end %>
+
                         </td>
                       </tr>
                     <% end %>
@@ -78,6 +84,7 @@
                       <tr>
                         <td><%= link_to(club.title, club_path(club)) %></td>
                         <td><%= club.club_reviews.count %></td>
+                        <td><%= club.club_votes.count %></td>
                         <td><%= club.club_collections.count %></td>
                       </tr>
                     <% end %>
@@ -107,6 +114,7 @@
                         <td><%= link_to(club_review.club.title, club_path(club_review.club)) %></td>
                         <td><%= club_review.comment %></td>
                         <td><%= club_review.club.club_reviews.count %></td>
+                        <td><%= club_review.club.club_votes.count %></td>
                         <td><%= club_review.club.club_collections.count %></td>
                       </tr>
                     <% end %>

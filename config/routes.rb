@@ -68,11 +68,12 @@ Rails.application.routes.draw do
     member do
       post :join
       post :quit
+      post :upvote
     end
     collection do
       get :clubuser
     end
-    resources :club_reviews    
+    resources :club_reviews
   end
 
 

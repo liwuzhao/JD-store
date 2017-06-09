@@ -1,6 +1,6 @@
 <div class="container club-box">
   <div class="row">
-
+    <h2 class="text-center">欢迎来到Ftiness社群</h2>
     <!-- 主内容区域 -->
     <div class="col-md-8 col-xs-12">
 
@@ -31,6 +31,10 @@
 
           <br>
 
+          <!-- 点赞按钮 -->
+          <%= link_to upvote_club_path(club), method: :post do %>
+            <i class="fa fa-thumbs-o-up"></i> &nbsp <span><%= club.club_votes.count %></span>
+          <% end %>
 
           <!-- 收藏按钮 -->&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
           <% if current_user && current_user.is_club_member_of?(club) %>
@@ -44,7 +48,7 @@
           <% end %>
 
           <!-- 评论数量 -->&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-            <i class="fa fa-commenting-o"></i> &nbsp <span><%= club.club_reviews.count %></span>
+          <i class="fa fa-commenting-o"></i> &nbsp <span><%= club.club_reviews.count %></span>
 
 
         </div>
@@ -118,10 +122,10 @@
         <!-- 按钮 -->
         <div class="club-index-box-side-btn row">
           <div class="col-md-6">
-            <%= link_to("发帖子", new_club_path, class: "btn btn-sm btn-danger center-block") %>
+            <%= link_to("发帖子", new_club_path, class: "btn btn-sm btn-welcome center-block") %>
           </div>
           <div class="col-md-6">
-            <%= link_to("个人主页", clubuser_clubs_path, class: "btn btn-sm btn-warning center-block") %>
+            <%= link_to("个人主页", clubuser_clubs_path, class: "btn btn-sm btn-welcome center-block") %>
           </div>
           <hr>
         </div>
