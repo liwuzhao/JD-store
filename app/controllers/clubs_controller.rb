@@ -1,12 +1,9 @@
 class ClubsController < ApplicationController
    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :join, :quit, :upvote, :clubuser]
 
-
-   # ---CRUD---
-
    def index
      @clubs = Club.all.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
-     @club_hots = Club.all.paginate(:page => params[:page], :per_page => 5).sort_by{|club| -club.club_reviews.count}    #重要功能写法，按数据要求排序
+     @club_hots = Club.all.paginate(:page => params[:page], :per_page => 5).sort_by{|club| -club.club_reviews.count}
      @club_review = ClubReview.new
 
    end
