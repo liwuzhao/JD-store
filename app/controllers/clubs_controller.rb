@@ -7,7 +7,7 @@ class ClubsController < ApplicationController
    def index
      @clubs = Club.all.order("created_at DESC")
      @club_review = ClubReview.new
-    
+
    end
 
    def show
@@ -54,8 +54,26 @@ class ClubsController < ApplicationController
    end
 
 
+  #收藏
+  def join
+    @club = Club.find(params[:id])
 
- # ---private---
+    if !current_user.is_club_member_of?(@club)
+      current_user.join_club_collection!(@club)
+    end
+      redirect_to :back
+  end
+
+  def quit
+    @club = Club.find(params[:id])
+
+    if current_user.is_club_member_of?(@club)
+      current_user.quit_club_collection!(@club)
+    end
+    
+    redirect_to :back
+  end
+
 
    private
 

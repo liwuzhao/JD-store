@@ -33,10 +33,12 @@ class User < ApplicationRecord
   has_many :favours
   has_many :collections, through: :favours, source: :product
 
- #--与club订单的关系--
-   has_many :clubs
-   has_many :club_reviews, dependent: :destroy
-   
+  has_many :clubs
+  has_many :club_reviews, dependent: :destroy
+
+  has_many :club_collections #收藏社群
+  has_many :participated_clubs, through: :club_collections, source: :club
+
   has_one :cart
 
   validates :nickname, presence: true
@@ -46,6 +48,7 @@ class User < ApplicationRecord
     is_admin
   end
 
+# 收藏商品
   def is_collect_of?(product)
     collections.include?(product)
   end
@@ -56,6 +59,19 @@ class User < ApplicationRecord
 
   def un_collect!(product)
     collections.delete(product)
+  end
+
+# 收藏社群
+  def is_club_member_of?(club)
+    participated_clubs.include?(club)
+  end
+
+  def join_club_collection!(club)
+    participated_clubs << club
+  end
+
+  def quit_club_collection!(club)
+    participated_clubs.delete(club)
   end
 
 end

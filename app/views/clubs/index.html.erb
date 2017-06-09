@@ -18,6 +18,16 @@
 
        <% @clubs.each do |club| %>
          <div class="club-index-box-main">
+           <!-- 收藏按钮 -->&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+           <% if current_user && current_user.is_club_member_of?(club) %>
+             <%= link_to quit_club_path(club), method: :post do %>
+               <i class="fa fa-bookmark"></i> &nbsp <span><%= club.club_collections.count %></span>
+             <% end %>
+           <% else %>
+             <%= link_to join_club_path(club), method: :post do %>
+               <i class="fa fa-bookmark-o"></i> &nbsp <span><%= club.club_collections.count %></span>
+             <% end %>
+           <% end %>
 
            <!-- 头像、发帖者名称、发帖时间 -->
            <div class="row">
@@ -40,6 +50,7 @@
                <%= simple_format(club.description) %>
              </div>
            </div>
+
 
          </div>
          <!-- 帖子评论 -->
