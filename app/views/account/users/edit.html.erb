@@ -9,6 +9,10 @@
         <%= f.input :truename, :label => '真实姓名' %>
         <%= f.input :address, :label => '地址'  %>
         <%= f.input :numbers, :label => '联系电话'  %>
+        <%= f.input :avatar, as: :file ,label:"头像"%>
+        <% if @user.avatar.present? %>
+          <%= image_tag(current_user.avatar.thumb.url,style:"border-radius:50%;width:25px;height:25px;")  %>
+        <% end %>
         <div class="form-actions">
           <%= f.button :submit, "更新",class: "btn btn-primary" %>
         </div>

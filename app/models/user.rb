@@ -38,6 +38,8 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates_length_of :numbers, maximum: 11
 
+  mount_uploader :avatar, AvatarUploader #头像
+
   def admin?
     is_admin
   end

@@ -57,8 +57,14 @@
                  <% else %>
                    <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                         Hi!, <%= current_user.nickname %>
-                         <b class="caret"></b>
+                       <% if current_user.avatar.present? %>
+                         <%= image_tag(current_user.avatar.thumb.url,style:"border-radius:50%;width:25px;height:25px;")  %>
+                         <!-- 用户的自选头像 -->
+                       <% else %>
+                         <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg",style:"border-radius:50%;width:25px;height:25px;") %>
+                          <!-- 定义用户未选择头像时的默认头像 -->
+                       <% end %>
+                       <%= current_user.nickname %>
                      </a>
                      <ul class="dropdown-menu">
                       <% if current_user.admin? %>
