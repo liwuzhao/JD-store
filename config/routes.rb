@@ -67,15 +67,9 @@ Rails.application.routes.draw do
 
     resources :clubs do
       resources :club_reviews
-      member do
-        post :upvote
-        post :join
-        post :quit
-      end
-      collection do
-        get :clubuser
-      end
 
-    end  #社群
-  
+    end
+
+
+
 end
