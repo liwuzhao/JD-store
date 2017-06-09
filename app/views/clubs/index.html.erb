@@ -1,20 +1,8 @@
 <div class="container club-box">
   <div class="row">
-<!-- ================================= -->
 
     <!-- 主内容区域 -->
-    <div class="col-md-8">
-
-      <!-- 发帖子按钮 -->
-      <% if current_user.present? %>
-        <div class="row club-index-up-btn">
-
-          <div class="col-sm-11">
-            <%= link_to("发布帖子", new_club_path, class: "btn btn-default center-block") %>
-          </div>
-        </div>
-      <% end %>
-
+    <div class="col-md-8 col-xs-12">
 
       <% @clubs.each do |club| %>
         <div class="club-index-box-main">
@@ -108,7 +96,7 @@
 
 
     <!-- 侧边栏 -->
-    <div class="col-md-4 club-index-box-side hidden-sm hidden-md hidden-xs">
+    <div class="col-md-4 col-xs-12 club-index-box-side">
 
       <div class="club-index-box-side-user">
         <!-- 注册，登入或头像 -->
@@ -127,7 +115,7 @@
           <hr>
         </div>
 
-        <!-- 四个按钮 -->
+        <!-- 按钮 -->
         <div class="club-index-box-side-btn row">
           <div class="col-md-6">
             <%= link_to("发帖子", new_club_path, class: "btn btn-sm btn-danger center-block") %>
@@ -140,13 +128,10 @@
       </div>
 
 
-
-
-
-
     </div>
 
 
 <!-- ================================= -->
   </div>
 </div>
+<br>
