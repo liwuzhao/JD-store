@@ -64,5 +64,11 @@ Rails.application.routes.draw do
     resources :users
   end
 
+    resources :clubs do
+      resources :club_reviews
+
+    end
+
+
 
 end

@@ -33,6 +33,10 @@ class User < ApplicationRecord
   has_many :favours
   has_many :collections, through: :favours, source: :product
 
+ #--与club订单的关系--
+   has_many :clubs
+   has_many :club_reviews, dependent: :destroy
+   
   has_one :cart
 
   validates :nickname, presence: true

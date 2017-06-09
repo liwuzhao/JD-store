@@ -1,0 +1,116 @@
+<div class="container club-box">
+   <div class="row">
+ <!-- ================================= -->
+
+     <!-- 主内容区域 -->
+     <div class="col-md-8">
+
+       <!-- 发帖子按钮 -->
+       <% if current_user.present? %>
+         <div class="row">
+
+           <div class="col-sm-11">
+             <%= link_to("发布帖子", new_club_path, class: "btn btn-default center-block") %>
+           </div>
+         </div>
+       <% end %>
+
+
+       <% @clubs.each do |club| %>
+         <div class="club-index-box-main">
+
+           <!-- 头像、发帖者名称、发帖时间 -->
+           <div class="row">
+
+             <div class="club-user-name">
+               <p><strong><%= club.user.nickname %></strong> <br> <%= club.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+             </div>
+           </div>
+
+           <div class="row">
+             <hr>
+           </div>
+
+           <!-- 发帖内容 -->
+           <div class="row">
+             <div class="club-title">
+               <h2><%= link_to(club.title, club_path(club)) %></h2>
+             </div>
+             <div class="club-description">
+               <%= simple_format(club.description) %>
+             </div>
+           </div>
+
+         </div>
+         <!-- 帖子评论 -->
+            <div class="club-index-box-review">
+
+              <!-- 填写评论 -->
+              <%= simple_form_for ([club, @club_review]) do |f| %>
+                <div class="">
+                  <%= f.input :comment, :label => "发表评论" %>
+                </div>
+                <div class="">
+                  <%= f.submit "发表评论", class: "btn btn-sm btn-default ", data: {disable_with: "Submiting"} %>
+                </div>
+              <% end %>
+              <hr>
+
+              <!-- 评论内容 -->
+              <div class="club-reviews">
+                <% club.club_reviews.each do |club_review| %>
+
+                  <div class="row">
+
+                    <div class="">
+                      <!-- 评论者头像 -->
+
+                      <div class="club-user-name">
+                        <p><strong><%= club_review.user.nickname %>：</strong> <br> <%= club_review.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+                      </div>
+                    </div>
+
+                    <div class="club-review-comment">
+                        <%= club_review.comment %>
+                    </div>
+
+
+                  </div>
+
+                  <hr>
+                <% end %>
+              </div>
+            </div>
+
+          <% end %>
+
+
+     </div>
+
+
+
+     <!-- 侧边栏 -->
+     <div class="col-md-4 club-index-box-side hidden-sm hidden-md hidden-xs">
+       <p>发帖子</p>
+       <p>个人主页</p>
+       <p>我的帖子</p>
+       <p>我的收藏</p>
+     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- ================================= -->
+   </div>
+ </div>
