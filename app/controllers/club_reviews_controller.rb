@@ -1,0 +1,2 @@
+class ClubReviewsController < ApplicationController
+end

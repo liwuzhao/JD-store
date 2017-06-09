@@ -8,13 +8,7 @@
        <!-- 发帖子按钮 -->
        <% if current_user.present? %>
          <div class="row">
-           <div class="col-sm-1 hidden-sm hidden-md hidden-xs">
-             <% if current_user.avatar.present? %>
-               <%= image_tag(current_user.avatar.avatarminixs.url, class: "img-circle img-responsive center-block" )%>
-             <% else %>
-               <%= image_tag("http://placehold.it/40x40&text=No Pic", class: "img-circle img-responsive center-block") %>
-             <% end %>
-           </div>
+
            <div class="col-sm-11">
              <%= link_to("发布帖子", new_club_path, class: "btn btn-default center-block") %>
            </div>
@@ -27,15 +21,9 @@
 
            <!-- 头像、发帖者名称、发帖时间 -->
            <div class="row">
-             <div class="club-user-avatar">
-               <% if club.user.avatar.present? %>
-                 <%= image_tag(club.user.avatar.avatarmini.url, class: "img-circle img-responsive" )%>
-               <% else %>
-                 <%= image_tag("http://placehold.it/40x40&text=No Pic", class: "img-circle img-responsive center-block") %>
-               <% end %>
-             </div>
+
              <div class="club-user-name">
-               <p><strong><%= club.user.display_name %></strong> <br> <%= club.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+               <p><strong><%= club.user.nickname %></strong> <br> <%= club.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
              </div>
            </div>
 
