@@ -36,18 +36,7 @@ class User < ApplicationRecord
  #--与club订单的关系--
    has_many :clubs
    has_many :club_reviews, dependent: :destroy
-   has_many :club_votes                                    #社群帖子点赞关系
-   has_many :participated_club_votes, through: :club_votes, source: :club
-
-  def is_club_vote_member_of?(club)
-    participated_club_votes.include?(club)
-  end
-
-  def join_club_vote!(club)
-    participated_club_votes << club
-  end
-
-
+   
   has_one :cart
 
   validates :nickname, presence: true
