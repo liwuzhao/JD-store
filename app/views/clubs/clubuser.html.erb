@@ -137,7 +137,7 @@
             <% if current_user.avatar.present? %>
               <%= image_tag(current_user.avatar.thumb.url,style:"border-radius:50%;width:70px;height:70px;")  %>
             <% else %>
-              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "img-circle img-responsive center-block") %>
+              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", style:"border-radius:50%;width:70px;height:70px;") %>
             <% end %>
           </div>
           <!-- 用户名 -->

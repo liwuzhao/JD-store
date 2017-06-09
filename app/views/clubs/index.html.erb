@@ -12,9 +12,9 @@
             <div class="club-user-avatar">
 
             <% if club.user.avatar.present? %>
-              <%= image_tag(club.user.avatar.thumb.url, class: "club-user-avatar") %>
+              <%= image_tag(club.user.avatar.thumb.url, class: "club-user-avatar", style:"margin-left:10px;") %>
             <% else %>
-              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "、center-block club-user-avatar") %>
+              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "center-block club-user-avatar", style:"margin-left:10px;") %>
             <% end %>
           </div>
 
@@ -83,10 +83,10 @@
               <div class="row">
                 <div class="review-user">
                   <!-- 评论者头像 -->
-                  <% if club.user.avatar.present? %>
-                    <%= image_tag(club.user.avatar.thumb.url, class: "club-user-avatar", style:"margin-left:15px;") %>
+                  <% if current_user.avatar.present? %>
+                    <%= image_tag(current_user.avatar.thumb.url, class: "club-user-avatar", style:"margin-left:15px;") %>
                   <% else %>
-                    <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "center-block club-user-avatar") %>
+                    <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "center-block club-user-avatar", style:"margin-left:15px;") %>
                   <% end %>
                   <div class="club-user-name">
                     <p><strong><%= club_review.user.nickname %>：</strong> <br> <%= club_review.created_at.strftime("%Y-%m-%d %H:%M") %></p>
@@ -106,6 +106,9 @@
         </div>
 
       <% end %>
+      <div class="text-center">
+        <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+      </div>      
     </div>
 
 
@@ -125,7 +128,7 @@
             <% if current_user.avatar.present? %>
               <%= image_tag(current_user.avatar.thumb.url,style:"border-radius:50%;width:70px;height:70px;")  %>
             <% else %>
-              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "img-circle img-responsive center-block") %>
+              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", style:"border-radius:50%;width:70px;height:70px;") %>
             <% end %>
           </div>
           <!-- 用户名 -->
@@ -148,6 +151,19 @@
         </div>
       </div>
 
+      <!-- 热门帖子 -->
+      <div class="club-index-box-side-list">
+        <h5>热评帖子</h5>
+        <hr>
+
+        <% @club_hots.each do |club_hot| %>
+          <div class="club-index-box-side-list-hot">
+            <%= link_to(club_hot.title, club_path(club_hot)) %> <span class="pull-right"><i class="fa fa-commenting-o"></i> &nbsp <%= club_hot.club_reviews.count %></span>
+          </div>
+        <% end %>
+
+        <hr>
+      </div>
 
     </div>
 
