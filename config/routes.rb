@@ -66,10 +66,13 @@ Rails.application.routes.draw do
 
   resources :clubs do
     member do
-      post :join            
+      post :join
       post :quit
     end
-    resources :club_reviews
+    collection do
+      get :clubuser
+    end
+    resources :club_reviews    
   end
 
 

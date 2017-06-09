@@ -70,8 +70,13 @@ class ClubsController < ApplicationController
     if current_user.is_club_member_of?(@club)
       current_user.quit_club_collection!(@club)
     end
-    
+
     redirect_to :back
+  end
+
+  #个人中心
+  def clubuser
+    @club_hots = Club.all.paginate(:page => params[:page], :per_page => 10).sort_by{|club| -club.club_reviews.count}
   end
 
 
