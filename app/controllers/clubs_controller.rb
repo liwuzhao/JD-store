@@ -7,7 +7,7 @@ class ClubsController < ApplicationController
    def index
      @clubs = Club.all.order("created_at DESC")
      @club_review = ClubReview.new
-     @club_hots = Club.all.paginate(:page => params[:page], :per_page => 10).sort_by{|club| -club.club_reviews.count}
+    
    end
 
    def show
@@ -17,7 +17,7 @@ class ClubsController < ApplicationController
 
    def new
      @club = Club.new
-     @club_hots = Club.all.paginate(:page => params[:page], :per_page => 10).sort_by{|club| -club.club_reviews.count}
+
    end
 
    def create
@@ -34,7 +34,6 @@ class ClubsController < ApplicationController
 
    def edit
      @club = Club.find(params[:id])
-     @club_hots = Club.all.paginate(:page => params[:page], :per_page => 10).sort_by{|club| -club.club_reviews.count}
 
    end
 
@@ -53,11 +52,7 @@ class ClubsController < ApplicationController
      @club.destroy
        redirect_to clubs_path
    end
-   # 个人中心
 
-    def clubuser
-      @club_hots = Club.all.paginate(:page => params[:page], :per_page => 10).sort_by{|club| -club.club_reviews.count}
-    end
 
 
  # ---private---
