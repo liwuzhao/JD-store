@@ -1,0 +1,2 @@
+class ClubReview < ApplicationRecord
+end
