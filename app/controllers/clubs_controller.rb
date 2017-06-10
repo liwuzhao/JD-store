@@ -1,13 +1,11 @@
 class ClubsController < ApplicationController
    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :join, :quit, :upvote, :clubuser]
 
-
-   # ---CRUD---
-
    def index
-     @clubs = Club.all.order("created_at DESC")
+     @clubs = Club.all.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+     @club_hots = Club.all.limit(5).sort_by{|club| -club.club_reviews.count}
      @club_review = ClubReview.new
-    
+
    end
 
    def show
@@ -54,8 +52,43 @@ class ClubsController < ApplicationController
    end
 
 
+  #收藏
+  def join
+    @club = Club.find(params[:id])
 
- # ---private---
+    if !current_user.is_club_member_of?(@club)
+      current_user.join_club_collection!(@club)
+    end
+      redirect_to :back
+  end
+
+  def quit
+    @club = Club.find(params[:id])
+
+    if current_user.is_club_member_of?(@club)
+      current_user.quit_club_collection!(@club)
+    end
+
+    redirect_to :back
+  end
+
+  # 投票功能
+  def upvote
+    @club = Club.find(params[:id])
+
+    if !current_user.is_club_vote_member_of?(@club)
+      current_user.join_club_vote!(@club)
+    else
+      flash[:notice] = "这篇帖子 你已经点过赞"
+    end
+    redirect_to :back
+  end
+
+  #个人中心
+  def clubuser
+    @club_hots = Club.all.paginate(:page => params[:page], :per_page => 10).sort_by{|club| -club.club_reviews.count}
+  end
+
 
    private
 

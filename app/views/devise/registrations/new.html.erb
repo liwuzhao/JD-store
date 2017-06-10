@@ -9,6 +9,7 @@
       <!-- <%= f.input :truename, label:"真实姓名" %> -->
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label:"密码" %>
       <%= f.input :password_confirmation, required: true , label:"确认密码"%>
+      <%= f.input :avatar, as: :file ,label:"头像"%>
     </div>
     <div class="form-actions">
       <%= f.button :submit, "注册",class: "btn btn-primary" %>

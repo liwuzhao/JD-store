@@ -42,38 +42,41 @@
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
-                  <li>
-                     <li>
-                        <%= link_to carts_path do  %>
-                           购物车 <i class="fa fa-shopping-cart"> </i> <span class="badge"><%= current_cart.products.count %></span>
-                        <% end %>
-                     </li>
-                   <% if !current_user %>
-                     <li><%= link_to("注册", new_user_registration_path) %> </li>
-                     <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
-                   <% else %>
+                <li>
+                  <%= link_to("社群", clubs_path) %>
+                </li>
+                <li>
+                  <%= link_to carts_path do  %>
+                  购物车 <i class="fa fa-shopping-cart"> </i> <span class="badge"><%= current_cart.products.count %></span>
+                <% end %>
+                </li>
 
-                   <li>
-                     <%= link_to("社群", clubs_path) %>
+                 <% if !current_user %>
+                    <li><%= link_to("注册", new_user_registration_path) %> </li>
+                    <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
+                 <% else %>
+                   <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <% if current_user.avatar.present? %>
+                         <%= image_tag(current_user.avatar.thumb.url,style:"border-radius:50%;width:25px;height:25px;")  %>
+                         <!-- 用户的自选头像 -->
+                       <% else %>
+                         <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg",style:"border-radius:50%;width:25px;height:25px;") %>
+                          <!-- 定义用户未选择头像时的默认头像 -->
+                       <% end %>
+                       <%= current_user.nickname %>
+                     </a>
+                     <ul class="dropdown-menu">
+                      <% if current_user.admin? %>
+                        <li><%= link_to("管理员面板", admin_products_path) %> </li>
+                      <% end %>
+                        <li> <%= link_to("账户信息", edit_account_user_path(current_user)) %></li>
+                        <li> <%= link_to("个人订单", account_orders_path) %></li>
+                        <li> <%= link_to("个人收藏", account_products_path) %></li>
+                        <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
+                     </ul>
                    </li>
-
-                     <li class="dropdown">
-                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Hi!, <%= current_user.nickname %>
-                           <b class="caret"></b>
-                       </a>
-                       <ul class="dropdown-menu">
-                        <% if current_user.admin? %>
-                          <li><%= link_to("管理员面板", admin_products_path) %> </li>
-                        <% end %>
-                          <li> <%= link_to("账户信息", edit_account_user_path(current_user)) %></li>
-                          <li> <%= link_to("个人订单", account_orders_path) %></li>
-                          <li> <%= link_to("个人收藏", account_products_path) %></li>
-                          <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
-                       </ul>
-                     </li>
-                   <% end %>
-                  </li>
+                 <% end %>
               </ul>
 
               <ul class="nav navbar-nav navbar-right">

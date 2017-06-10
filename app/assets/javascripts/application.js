@@ -16,9 +16,13 @@
 //= require bootstrap-sprockets
 //= require social-share-button
 //= require social-share-button/wechat
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales/zh-CN
 //= require_tree .
 
 
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales/zh-CN
 
 // 回到顶部
 $(document).on('click', '.working', function () {

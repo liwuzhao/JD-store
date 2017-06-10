@@ -62,6 +62,8 @@ gem 'qiniu-rs'
 gem 'figaro'
 gem 'jquery-turbolinks'
 gem 'social-share-button'
+gem 'bootstrap-wysihtml5-rails'
+
 
 
 

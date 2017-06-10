@@ -1,0 +1,169 @@
+<div class="container club-box">
+  <div class="row">
+<!-- ================================= -->
+
+    <!-- 表单区域 -->
+    <div class="col-md-8">
+
+      <br>
+
+      <div class="">
+
+        <!-- 导航栏 -->
+          <ul class="nav nav-tabs nav-justified">
+            <li class="active">
+              <a href="#tab_default_1" data-toggle="tab">帖子</a>
+            </li>
+            <li>
+              <a href="#tab_default_2" data-toggle="tab">收藏</a>
+            </li>
+            <li>
+              <a href="#tab_default_3" data-toggle="tab">评论</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-content">
+
+          <!-- 我发布的帖子 -->
+          <div class="club-user-box tab-pane active" id="tab_default_1">
+            <table class="table table-hover">
+              <thead>
+                <th>标题</th>
+                <th>评论</th>
+                <th>点赞</th>
+                <th>收藏</th>
+                <th>操作</th>
+              </thead>
+                <tbody>
+                  <% if current_user.clubs.present? %>
+                    <% current_user.clubs.order("created_at DESC").each do |club| %>
+                      <tr>
+                        <td><%= link_to(club.title, club_path(club)) %></td>
+                        <td><%= club.club_reviews.count %></td>
+                        <td><%= club.club_votes.count %></td>
+                        <td><%= club.club_collections.count %></td>
+                        <td>
+                          <%= link_to edit_club_path(club),class:"btn btn-xs btn-warning" do %>
+                            <i class="fa fa-pencil fa-fw"></i>
+                          <% end %>
+                          <%= link_to club_path(club), class:"btn btn-xs  btn-danger" ,:method => :delete, :data => { :confirm => "Are you sure?" }  do%>
+                            <i class="fa fa-trash-o fa-fw"></i>
+                          <% end %>
+
+                        </td>
+                      </tr>
+                    <% end %>
+                    <% else %>
+                      <br>
+                      <p class="text-center">你还没有发表帖子哦！</p>
+                      <br>
+                  <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <!-- 我收藏的帖子 -->
+          <div class="club-user-box tab-pane" id="tab_default_2">
+            <table class="table table-hover">
+              <thead>
+                <th>标题</th>
+                <th>评论</th>
+                <th>点赞</th>
+                <th>收藏</th>
+              </thead>
+                <tbody>
+                  <% if current_user.participated_clubs.present? %>
+                    <% current_user.participated_clubs.order("created_at DESC").each do |club| %>
+                      <tr>
+                        <td><%= link_to(club.title, club_path(club)) %></td>
+                        <td><%= club.club_reviews.count %></td>
+                        <td><%= club.club_votes.count %></td>
+                        <td><%= club.club_collections.count %></td>
+                      </tr>
+                    <% end %>
+                    <% else %>
+                      <br>
+                      <p class="text-center">你还没有收藏帖子哦！</p>
+                      <br>
+                  <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <!-- 我回复的帖子 -->
+          <div class="club-user-box tab-pane" id="tab_default_3">
+            <table class="table table-hover">
+              <thead>
+                <th>标题</th>
+                <th>评论内容</th>
+                <th>评论</th>
+                <th>点赞</th>
+                <th>收藏</th>
+              </thead>
+                <tbody>
+                  <% if current_user.club_reviews.present? %>
+                    <% current_user.club_reviews.order("created_at DESC").each do |club_review| %>
+                      <tr>
+                        <td><%= link_to(club_review.club.title, club_path(club_review.club)) %></td>
+                        <td><%= club_review.comment %></td>
+                        <td><%= club_review.club.club_reviews.count %></td>
+                        <td><%= club_review.club.club_votes.count %></td>
+                        <td><%= club_review.club.club_collections.count %></td>
+                      </tr>
+                    <% end %>
+                    <% else %>
+                      <br>
+                      <p class="text-center">你还没有发表过评论哦！</p>
+                      <br>
+                  <% end %>
+                </tbody>
+            </table>
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 侧边栏 -->
+    <div class="col-md-4 col-xs-12 club-index-box-side">
+
+      <div class="club-index-box-side-user">
+        <div class="club-index-box-side-avatar text-center">
+          <!-- 头像 -->
+          <div class="article-avatar">
+            <% if current_user.avatar.present? %>
+              <%= image_tag(current_user.avatar.thumb.url,style:"border-radius:50%;width:70px;height:70px;")  %>
+            <% else %>
+              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", style:"border-radius:50%;width:70px;height:70px;") %>
+            <% end %>
+          </div>
+          <!-- 用户名 -->
+          <div class="article-username text-center">
+            <%= current_user.nickname %>
+          </div>
+          <hr>
+        </div>
+
+        <!-- 按钮 -->
+        <div class="club-index-box-side-btn row">
+          <div class="col-md-6">
+            <%= link_to("发帖子", new_club_path, class: "btn btn-sm btn-welcome center-block") %>
+          </div>
+          <div class="col-md-6">
+            <%= link_to("社群", clubs_path, class: "btn btn-sm btn-welcome center-block") %>
+          </div>
+          <hr>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+<!-- ================================= -->
+  </div>
+</div>
