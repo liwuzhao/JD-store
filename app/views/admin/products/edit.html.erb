@@ -21,7 +21,7 @@
   <div class="group">
     <%= f.input :discount,:label => "Discount % (eg. $100 x 80% = $80)" %>
   </div>
-  
+
   <% if @product.image.present? %>
     <span>目前商品图</span> <br>
     <%= image_tag(@product.image.thumb.url) %>
@@ -43,3 +43,6 @@
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class:"btn btn-primary" %>
 
 <% end %>
+<script type="text/javascript">
+  autosize($('#product_description'));
+</script>

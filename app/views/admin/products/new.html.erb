@@ -17,7 +17,7 @@
   <div class="group">
     <%= f.input :price %>
   </div>
-  
+
   <div class="group">
     <%= f.input :discount,:label => "Discount % (eg. $100 x 80% = $80)" %>
   </div>
@@ -34,3 +34,7 @@
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class:"btn btn-primary" %>
 
 <% end %>
+
+<script type="text/javascript">
+  autosize($('#product_description'));
+</script>
