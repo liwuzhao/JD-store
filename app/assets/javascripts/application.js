@@ -16,9 +16,11 @@
 //= require bootstrap-sprockets
 //= require social-share-button
 //= require social-share-button/wechat
-//= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales/zh-CN
-//= require autosize.min
+//= require module
+//= require hotkeys
+//= require module
+//= require uploader
+//= require simditor
 //= require_tree .
 
 
