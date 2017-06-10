@@ -1,9 +1,56 @@
-<div class="container">
+<div class="container club-box">
+   <div class="row">
 
-   <h3 class="text-center">编辑帖子</h3>
-   <br>
+     <!-- 表单区域 -->
+     <div class="col-md-8">
+       <h4 class="text-center">发帖子</h4>
+       <hr>
+         <%= render "form" %>
+       <hr>
+     </div>
 
-   <%= render "form" %>
 
 
- </div>
+     <!-- 侧边栏 -->
+     <div class="col-md-4 col-xs-12 club-index-box-side">
+
+       <div class="club-index-box-side-user">
+         <!-- 注册，登入或头像 -->
+         <div class="club-index-box-side-avatar text-center">
+           <!-- 注册，登入 -->
+           <% if !current_user %>
+             <%= link_to("注册", new_user_registration_path) %> &nbsp|&nbsp
+             <%= link_to("登入", new_user_session_path) %>
+           <% else %>
+           <div class="article-avatar">
+             <% if current_user.avatar.present? %>
+               <%= image_tag(current_user.avatar.thumb.url,style:"border-radius:50%;width:70px;height:70px;")  %>
+             <% else %>
+               <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", style:"border-radius:50%;width:70px;height:70px;") %>
+             <% end %>
+           </div>
+           <!-- 用户名 -->
+           <div class="article-username text-center">
+             <%= current_user.nickname %>
+           </div>
+           <% end %>
+           <hr>
+         </div>
+
+         <!-- 按钮 -->
+         <div class="club-index-box-side-btn row">
+           <div class="col-md-6">
+             <%= link_to("发帖子", new_club_path, class: "btn btn-sm btn-welcome center-block") %>
+           </div>
+           <div class="col-md-6">
+             <%= link_to("个人主页", clubuser_clubs_path, class: "btn btn-sm btn-welcome center-block") %>
+           </div>
+           <hr>
+         </div>
+       </div>
+
+     </div>
+
+ <!-- ================================= -->
+   </div>
+</div>

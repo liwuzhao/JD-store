@@ -18,6 +18,7 @@
 //= require social-share-button/wechat
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/zh-CN
+//= require autosize.min
 //= require_tree .
 
 
