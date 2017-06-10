@@ -83,7 +83,7 @@
               <div class="row">
                 <div class="review-user">
                   <!-- 评论者头像 -->
-                  <% if current_user.avatar.present? %>
+                  <% if club_review.user.avatar.present? %>
                     <%= image_tag(club_review.user.avatar.thumb.url, class: "club-user-avatar", style:"margin-left:15px;") %>
                   <% else %>
                     <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "center-block club-user-avatar", style:"margin-left:15px;") %>
