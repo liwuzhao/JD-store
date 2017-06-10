@@ -89,5 +89,8 @@ class User < ApplicationRecord
     participated_club_votes << club
   end
 
+  #
+  has_many :articles
+
 
 end

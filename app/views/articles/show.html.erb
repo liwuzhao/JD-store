@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+
+    <div class="article-show">
+
+      <div class="col-md-8 article-show-box">
+
+          <!-- 标题 -->
+          <div class="article-title">
+            <h1><%= @article.title %></h1>
+          </div>
+
+          <!-- 作者、发布时间 -->
+          <div class="article-author">
+            <span> <%= @article.user.nickname %></span> ·
+            <span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+          </div>
+
+
+          <!-- 主图 -->
+          <div class="article-image">
+            <%= image_tag(@article.image.articleimg.url, class: "img-rounded img-responsive center-block") %>
+          </div>
+          <hr>
+
+          <!-- 内容 -->
+          <div class="article-description">
+            <%= simple_format(@article.description) %>
+          </div>
+
+
+          <hr>
+
+      </div>
+    </div>
+
+  </div>
+</div>

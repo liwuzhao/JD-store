@@ -76,6 +76,8 @@ Rails.application.routes.draw do
     resources :club_reviews
   end
 
+  resources :articles
+
 
 
 end
