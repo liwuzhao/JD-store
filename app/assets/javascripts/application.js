@@ -24,9 +24,6 @@
 //= require_tree .
 
 
-//= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales/zh-CN
-
 // 回到顶部
 $(document).on('click', '.working', function () {
  alert('功能暂未完成，敬请期待...')
