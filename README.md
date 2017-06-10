@@ -1,27 +1,4 @@
 # README
-t.t
-test
-test-wuzhao
-test-risa
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+这是Wuzhao & RISA的参赛作品 【Fitness健身俱乐部】
+两位都是Ruby on Rails的新手
+有错误及不足的地方请及时指出
