@@ -1,6 +1,11 @@
 <tr>
   <td>
    <span>
+        <% if comment.user.avatar.present? %>
+          <%= image_tag(comment.user.avatar.thumb.url,style:"margin-left:10px;border-radius:50%;width:35px;height:35px;") %>
+        <% else %>
+          <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "center-block", style:"margin-left:10px;border-radius:50%;width:35px;height:35px;") %>
+        <% end %>
         <b><%= comment.user.nickname %></b>
      说：
    </span>
