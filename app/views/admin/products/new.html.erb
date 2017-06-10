@@ -36,5 +36,8 @@
 <% end %>
 
 <script type="text/javascript">
-  autosize($('#product_description'));
+  var editor = new Simditor({
+  textarea: $('#product_description')
+  //optional options
+  });
 </script>
