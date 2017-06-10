@@ -3,7 +3,7 @@ class ClubsController < ApplicationController
 
    def index
      @clubs = Club.all.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
-     @club_hots = Club.all.paginate(:page => params[:page], :per_page => 5).sort_by{|club| -club.club_reviews.count}
+     @club_hots = Club.all.limit(5).sort_by{|club| -club.club_reviews.count}
      @club_review = ClubReview.new
 
    end
