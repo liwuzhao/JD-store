@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :join ,:quit]
 
 
   # ---CRUD---
@@ -16,6 +16,28 @@ class ArticlesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  # ---article_collection 收藏文章---
+
+  def join
+    @article = Article.find(params[:id])
+
+    if !current_user.is_article_member_of?(@article)
+      current_user.join_article_collection!(@article)
+    end
+      redirect_to article_path(@article)
+  end
+
+  def quit
+    @article = Article.find(params[:id])
+
+    if current_user.is_article_member_of?(@article)
+      current_user.quit_article_collection!(@article)
+    end
+      redirect_to article_path(@article)
+  end
+
+
 
   # ---private---
 

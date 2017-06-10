@@ -22,7 +22,12 @@ Rails.application.routes.draw do
       end
      end
 
-     resources :articles
+    resources :articles do
+      member do
+        post :publish
+        post :hide
+      end
+    end
 
   end
 
@@ -79,7 +84,12 @@ Rails.application.routes.draw do
     resources :club_reviews
   end
 
-  resources :articles
+  resources :articles do
+    member do
+      post :join
+      post :quit
+    end
+  end
 
 
 

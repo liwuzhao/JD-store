@@ -48,6 +48,20 @@ class Admin::ArticlesController < ApplicationController
       redirect_to admin_articles_path
   end
 
+  # ---后台隐藏或公开按钮---
+
+  def publish
+    @article = Article.find(params[:id])
+    @article.publish!
+    redirect_to :back
+  end
+
+  def hide
+    @article = Article.find(params[:id])
+    @article.hide!
+    redirect_to :back
+  end
+
   # ---private---
 
   def article_params

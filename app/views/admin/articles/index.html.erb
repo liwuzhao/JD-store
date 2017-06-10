@@ -33,6 +33,15 @@
             <%= link_to("Edit", edit_admin_article_path(article)) %> |
             <%= link_to("destroy", admin_article_path(article), method: :delete, data: { confirm: "你确定要删除吗？"}) %>
           </td>
+          <td>
+            <% if article.is_hidden %>
+              <%= link_to publish_admin_article_path(article), method: :post, class: "btn btn-xs btn-success" do %>
+              <i class="fa fa-eye"></i><% end %>
+            <% else %>
+              <%= link_to hide_admin_article_path(article), method: :post, class: "btn btn-xs btn-warning" do %>
+              <i class="fa fa-eye-slash"></i><% end %>
+            <% end %>
+          </td>          
         </tr>
       <% end %>
     </tbody>
