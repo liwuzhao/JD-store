@@ -85,6 +85,7 @@ Rails.application.routes.draw do
   end
 
   resources :articles do
+    resources :article_reviews
     member do
       post :join
       post :quit

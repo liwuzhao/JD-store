@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @user = @article.user
+    @article_reviews = ArticleReview.where(article_id: @article.id).order("created_at DESC")
+    @article_review = ArticleReview.new
+
     if @article.is_hidden
       flash[:warning] = "这篇文章在审核中！不可查看！"
       redirect_to root_path

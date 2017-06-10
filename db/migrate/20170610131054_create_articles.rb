@@ -3,7 +3,7 @@ class CreateArticles < ActiveRecord::Migration[5.0]
     create_table :articles do |t|
       t.integer :user_id
       t.string :title
-      t.string :description
+      t.text :description
       t.string :image
       t.boolean :is_hidden,   default: true
 

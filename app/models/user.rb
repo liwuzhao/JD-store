@@ -36,6 +36,7 @@ class User < ApplicationRecord
   has_one :cart
 
   has_many :articles
+  has_many :article_reviews
 
   validates :nickname, presence: true
   validates_length_of :numbers, maximum: 11
