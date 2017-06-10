@@ -38,13 +38,14 @@
                     <% end %>
                   </ul>
                 </li>
+                <li>
+                  <%= link_to("会员分享", clubs_path) %>
+                </li>
 
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <%= link_to("社群", clubs_path) %>
-                </li>
+
                 <li>
                   <%= link_to carts_path do  %>
                   购物车 <i class="fa fa-shopping-cart"> </i> <span class="badge"><%= current_cart.products.count %></span>
