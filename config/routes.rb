@@ -21,6 +21,14 @@ Rails.application.routes.draw do
         post :return
       end
      end
+
+    resources :articles do
+      member do
+        post :publish
+        post :hide
+      end
+    end
+
   end
 
   resources :products do
@@ -74,6 +82,14 @@ Rails.application.routes.draw do
       get :clubuser
     end
     resources :club_reviews
+  end
+
+  resources :articles do
+    resources :article_reviews
+    member do
+      post :join
+      post :quit
+    end
   end
 
 

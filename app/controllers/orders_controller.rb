@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:create]
+  layout "account"
 
   def create
     @order = Order.new(order_params)

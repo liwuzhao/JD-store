@@ -35,6 +35,9 @@ class User < ApplicationRecord
 
   has_one :cart
 
+  has_many :articles
+  has_many :article_reviews
+
   validates :nickname, presence: true
   validates_length_of :numbers, maximum: 11
 
@@ -87,6 +90,25 @@ class User < ApplicationRecord
 
   def join_club_vote!(club)
     participated_club_votes << club
+  end
+
+
+
+  # ---收藏文章功能三方关系代码块---
+
+  has_many :article_collections                               #收藏商品关系
+  has_many :participated_articles, through: :article_collections, source: :article
+
+  def is_article_member_of?(article)
+    participated_articles.include?(article)
+  end
+
+  def join_article_collection!(article)
+    participated_articles << article
+  end
+
+  def quit_article_collection!(article)
+    participated_articles.delete(article)
   end
 
 

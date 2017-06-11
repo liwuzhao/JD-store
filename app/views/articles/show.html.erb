@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row">
+
+    <div class="article-show">
+
+      <div class="col-md-8 col-md-offset-2 article-show-box">
+
+          <!-- 标题 -->
+          <div class="article-title">
+            <h1><%= @article.title %></h1>
+          </div>
+
+          <!-- 作者、发布时间 -->
+          <div class="article-author">
+            <span> <%= @article.user.nickname %></span> ·
+            <span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+            <% if @article.user.avatar.present? %>
+              <%= image_tag(@article.user.avatar.thumb.url, class: "club-user-avatar", style:"") %>
+            <% else %>
+              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "center-block club-user-avatar", style:"width:30px;height:30px; margin-right:10px;margin-top:-5px;") %>
+            <% end %>
+          </div>
+
+
+          <!-- 摘要 -->
+          <div class="article-summary">
+            <p>
+              <blockquote>
+                  <%= simple_format(@article.summary) %>
+              </blockquote>
+            </p>
+          </div>
+
+          <!-- 内容 -->
+          <div class="article-description">
+            <%= simple_format(@article.description) %>
+          </div>
+
+          <hr>
+          <!-- 文章收藏功能 -->
+          <div class="article-collection text-center">
+            <% if current_user && current_user.is_article_member_of?(@article) %>
+              <div class="article-collection-btn">
+                <%= link_to quit_article_path(@article), method: :post, class: "btn btn-lg btn-danger" do %>
+                <i class="fa fa-thumbs-up fa-1x">  赞  (<span><%= @article.article_collections.count %></span>) </i><% end %>
+              </div>
+            <% else %>
+              <div class="article-collection-btn">
+                <%= link_to join_article_path(@article), method: :post, class: "btn btn-lg btn-default" do %>
+                <i class="fa fa-thumbs-o-up fa-1x">  赞  (<span><%= @article.article_collections.count %></span>) </i><% end %>
+              </div>
+            <% end %>
+          </div>
+
+          <!-- 文章评论 -->
+          <div class="article-review-box">
+            <%= simple_form_for ([@article, @article_review]) do |f| %>
+              <div class="">
+                <%= f.input :comment, :label => "发表评论" %>
+              </div>
+              <div class="">
+                <%= f.submit "提交评论", class: "btn btn-sm btn-default ", data: {disable_with: "Submiting"} %>
+              </div>
+            <% end %>
+            <br>
+            <% if @article_reviews.blank? %>
+              <p class="text-center">这篇文章还没有人评论，来为ta添加一个吧！</p>
+            <% else %>
+
+            <div class="article-reviews ">
+              <% @article_reviews.each do |article_review| %>
+                <div class="row">
+
+                  <!-- 评论者头像 -->
+                  <div class="col-sm-1 col-xs-2">
+                    <% if article_review.user.avatar.present? %>
+                      <%= image_tag(article_review.user.avatar.avatarmini.url, class: "img-circle img-responsive") %>
+                    <% else %>
+                      <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "img-circle img-responsive center-block") %>
+                    <% end %>
+                  </div>
+
+                  <!-- 评论内容 -->
+                  <div class="col-sm-11 ccol-xs-10">
+                    <div class="article-review-username">
+                      <div><%= article_review.user.nickname %> <span class="pull-right"><%= article_review.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span></div>
+                    </div>
+                    <div>
+                      <%= simple_format(article_review.comment) %>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+              <% end %>
+            </div>
+
+            <% end %>
+
+          </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
