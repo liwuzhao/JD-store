@@ -16,6 +16,14 @@
             <span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
           </div>
 
+          <!-- 摘要 -->
+          <div class="article-summary">
+            <p>
+              <blockquote>
+                  <%= simple_format(@article.summary) %>
+              </blockquote>
+            </p>
+          </div>
 
           <!-- 主图 -->
           <% if @article.image.present?%>

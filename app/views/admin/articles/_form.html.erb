@@ -2,8 +2,9 @@
   <div class="form-group">
     <%= f.input :title, :label => "标题" %>
     <%= f.input :image, as: :file, :label => "封面(要求：600px*400px)" %>
+    <%= f.input :summary, :label => "摘要" %>
     <%= f.input :description, :label => "内容" %>
-    <%= f.input :is_hidden, :label => "隐藏(审核不通过)" %>
+    <%= f.input :is_hidden, :label => "隐藏" %>
     <hr>
 
   </div>

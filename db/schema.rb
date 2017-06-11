@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170610170304) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "description"
+    t.text     "summary"
     t.string   "image"
     t.boolean  "is_hidden",   default: true
     t.datetime "created_at",                 null: false

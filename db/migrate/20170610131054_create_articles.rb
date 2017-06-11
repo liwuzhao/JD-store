@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.string :title
       t.text :description
+      t.text :summary
       t.string :image
       t.boolean :is_hidden,   default: true
 
