@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JDstore 后台</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <div class="content">
+      <div class="container navbar_fix">
+        <%= render "common/navbar" %>
+        <div class="row">
+          <div class="col-xs-2 nav-left-style">
+            <br>
+            <h5>我的账号</h5>
+            <p><%= current_user.email %></p>
+            <hr>
+            <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+              <li><%= link_to("我的订单", account_orders_path) %></li>
+              <li><%= link_to("收藏商品", account_products_path) %></li>
+            </ul>
+
+            <hr>
+            <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+              <li><%= link_to("编辑账户", edit_account_user_path(current_user)) %></li>
+            </ul>
+            <hr>
+            <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+              <li><%= link_to("社区", clubuser_clubs_path) %></li>
+            </ul>
+
+          </div>
+          <div class="col-md-10">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= render "common/footer" %>
+
+</body>
+</html>

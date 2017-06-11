@@ -3,7 +3,7 @@
 
     <div class="article-show">
 
-      <div class="col-md-8 article-show-box">
+      <div class="col-md-8 col-md-offset-2 article-show-box">
 
           <!-- 标题 -->
           <div class="article-title">
@@ -14,7 +14,13 @@
           <div class="article-author">
             <span> <%= @article.user.nickname %></span> ·
             <span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+            <% if @article.user.avatar.present? %>
+              <%= image_tag(@article.user.avatar.thumb.url, class: "club-user-avatar", style:"") %>
+            <% else %>
+              <%= image_tag("http://ww2.sinaimg.cn/large/006tKfTcly1fgfe52iv75j30e80e8jrg.jpg", class: "center-block club-user-avatar", style:"width:30px;height:30px; margin-right:10px;margin-top:-5px;") %>
+            <% end %>
           </div>
+
 
           <!-- 摘要 -->
           <div class="article-summary">
