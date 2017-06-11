@@ -25,14 +25,6 @@
             </p>
           </div>
 
-          <!-- 主图 -->
-          <% if @article.image.present?%>
-            <div class="article-image">
-              <%= image_tag(@article.image.thumb.url, class: "img-rounded img-responsive center-block") %>
-            </div>
-            <hr>
-          <% end %>
-
           <!-- 内容 -->
           <div class="article-description">
             <%= simple_format(@article.description) %>
@@ -53,8 +45,6 @@
               </div>
             <% end %>
           </div>
-          <hr>
-
 
           <!-- 文章评论 -->
           <div class="article-review-box">
@@ -66,7 +56,7 @@
                 <%= f.submit "提交评论", class: "btn btn-sm btn-default ", data: {disable_with: "Submiting"} %>
               </div>
             <% end %>
-            <hr>
+            <br>
             <% if @article_reviews.blank? %>
               <p class="text-center">这篇文章还没有人评论，来为ta添加一个吧！</p>
             <% else %>
@@ -93,7 +83,6 @@
                       <%= simple_format(article_review.comment) %>
                     </div>
                   </div>
-
                 </div>
                 <hr>
               <% end %>
