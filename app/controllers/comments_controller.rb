@@ -11,9 +11,8 @@ class CommentsController < ApplicationController
       @comment = Comment.new(comment_params)
       @comment.product = @product
       @comment.user = current_user
-
       if @comment.save
-        redirect_to product_path(@product)
+        redirect_to :back
       else
         render :new
       end

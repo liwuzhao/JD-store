@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20170610170304) do
 
   create_table "product_lists", force: :cascade do |t|
     t.integer  "order_id"
+    t.integer  "product_id"
     t.string   "product_name"
     t.integer  "product_price"
     t.integer  "quantity"

@@ -18,6 +18,8 @@ class Product < ApplicationRecord
 
   belongs_to :category #商品分类
 
+  has_many :product_lists
+
   #购物车的三方关系
   has_many :cart_items
   has_many :cart, through: :cart_items, :dependent => :destroy
