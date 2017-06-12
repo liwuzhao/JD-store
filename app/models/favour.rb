@@ -10,6 +10,7 @@
 #
 
 class Favour < ApplicationRecord
+  #用户收藏商品的三方关系
   belongs_to :user
   belongs_to :product
 end

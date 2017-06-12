@@ -6,7 +6,7 @@
 
           <div class="progress" style="border:solid; border-width:1px;">
             <div class="progress-bar" role="progressbar" aria-valuenow="70"
-            aria-valuemin="0" aria-valuemax="100" style="width:25%">
+            aria-valuemin="0" aria-valuemax="100" style="width:33%">
               等待付款
             </div>
           </div>
@@ -17,7 +17,7 @@
 
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:50%">
+        aria-valuemin="0" aria-valuemax="100" style="width:75%">
           已付款
         </div>
       </div>
@@ -116,6 +116,9 @@
         </tr>
       </tbody>
     </table>
+
+
+
     <div class="pull-left">
       <% if @order.order_placed? || @order.paid? %>
         <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-info") %>

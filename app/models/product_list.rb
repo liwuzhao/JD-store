@@ -12,5 +12,6 @@
 #
 
 class ProductList < ApplicationRecord
+  #订单明细
   belongs_to :order
 end
