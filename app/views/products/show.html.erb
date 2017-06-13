@@ -88,23 +88,18 @@
        </p>
      </div>
      <div id="menu1" class="tab-pane fade">
-       <div class="comment-input">
-         <br>
-         <%= simple_form_for @comment,url:product_comments_path(@product),:remote => true do |f| %>
-           <%= f.input :content, label:"说你想说"%>
-           <%= f.submit "添加评论", :disable_with => "提交中",class: "comment-button btn" %>
-         <% end %>
-         <br>
-       </div>
-
-       <table class="table table-striped table-bordered">
-         <tbody id="product-comment-<%=@product.id%>">
-           <% @product.comments.order("created_at DESC").each do |comment| %>
-             <%= render :partial => "comment_list", :locals=> {:product=> @product,:comment => comment}%>
-           <% end %>
-         </tbody>
-       </table>
-
+       <br>
+       <% if @product.comments.present? %>
+         <table class="table table-striped table-bordered">
+           <tbody id="product-comment-<%=@product.id%>">
+             <% @product.comments.order("created_at DESC").each do |comment| %>
+               <%= render :partial => "comment_list", :locals=> {:product=> @product,:comment => comment}%>
+             <% end %>
+           </tbody>
+         </table>
+       <% else %>
+       <h2 class="no-collection" style="margin-right:60px">暂无评论 </h2>
+       <% end %>
      </div>
   </div>
 </div>

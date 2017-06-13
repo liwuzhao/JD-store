@@ -3,41 +3,39 @@ class OrdersController < ApplicationController
   layout "account"
 
   def create
-    @order = Order.new(order_params)
-    @order.user = current_user
-    @order.total = current_cart.total_price
+      @order = Order.new(order_params)
+      @order.user = current_user
+      @order.total = current_cart.total_price
 
+      if @order.save
 
-    if @order.save
-
-      current_cart.cart_items.each do |cart_item|
-        #将下单信息存到product_list
-        product_list = ProductList.new
-        product_list.product = cart_item.product #记录product
-        product_list.order = @order
-        product_list.product_name = cart_item.product.title
-        if cart_item.product.discount.present?
-          product_list.product_price = cart_item.product.price * cart_item.product.discount / 100
-        else
-          product_list.product_price = cart_item.product.price
+        current_cart.cart_items.each do |cart_item|
+          #将下单信息存到product_list
+          product_list = ProductList.new
+          product_list.product = cart_item.product #记录product
+          product_list.order = @order
+          product_list.product_name = cart_item.product.title
+          if cart_item.product.discount.present?
+            product_list.product_price = cart_item.product.price * cart_item.product.discount / 100
+          else
+            product_list.product_price = cart_item.product.price
+          end
+          product_list.quantity = cart_item.quantity
+          product_list.save
+          # 下单后商品的库存数量对应减少
+          product = cart_item.product
+          product.quantity = product.quantity - cart_item.quantity
+          product.save
         end
-        product_list.quantity = cart_item.quantity
-        product_list.save
-        # 下单后商品的库存数量对应减少
-        product = cart_item.product
-        product.quantity = product.quantity - cart_item.quantity
-        product.save
+
+
+        current_cart.clean!
+        OrderMailer.notify_order_placed(@order).deliver!
+
+        redirect_to order_path(@order.token)
+      else
+        render 'carts/checkout'
       end
-
-
-      current_cart.clean!
-      OrderMailer.notify_order_placed(@order).deliver!
-
-      redirect_to order_path(@order.token)
-    else
-      render 'carts/checkout'
-    end
-
   end
 
   def show

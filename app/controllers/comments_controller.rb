@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
       @comment.product = @product
       @comment.user = current_user
       if @comment.save
+        flash[:notice] = "评论成功"
         redirect_to product_path(@product)
       else
         render :new

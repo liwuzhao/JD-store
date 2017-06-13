@@ -71,12 +71,22 @@
         <% @product_lists.each do |product_list| %>
           <tr>
             <td>
-              <%= link_to(product_list.product.title, product_path(product_list.product)) %>
+              <% if product_list.product.present? %>
+                <%= link_to(product_list.product.title, product_path(product_list.product)) %>
+              <% else %>
+                <%= product_list.product_name %>
+              <% end %>
             </td>
             <td>
               <%= product_list.product_price %>
             </td>
-            <td><%= link_to("评价", new_product_comment_path(product_list.product)) %></td>
+            <td>
+            <% if product_list.product.present? %>
+              <%= link_to("评价", new_product_comment_path(product_list.product)) %>
+            <% else %>
+              <%= "已下架或失效" %>
+            <% end %>
+            </td>
           </tr>
         <% end %>
 
@@ -123,13 +133,13 @@
 
     <div class="pull-left">
       <% if @order.order_placed? || @order.paid? %>
-        <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-info") %>
+        <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-danger") %>
       <% end %>
     </div>
     <% if !@order.is_paid? %>
       <div class="group pull-right">
-          <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
-          <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
+          <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-primary") %>
+          <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-primary") %>
       </div>
     <% end %>
   </div>

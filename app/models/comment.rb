@@ -13,7 +13,6 @@
 class Comment < ApplicationRecord
   #用户对商品的评论
   belongs_to :product
-  belongs_to :order
   belongs_to :user
   validates :content, presence: true
 end
