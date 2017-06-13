@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       @comment.product = @product
       @comment.user = current_user
       if @comment.save
-        redirect_to :back
+        redirect_to product_path(@product)
       else
         render :new
       end

@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  title       :string
+#  description :text
+#  summary     :text
+#  image       :string
+#  is_hidden   :boolean          default(TRUE)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Article < ApplicationRecord
   mount_uploader :image, ImageUploader #文章封面图
 

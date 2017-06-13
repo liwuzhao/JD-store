@@ -13,10 +13,8 @@ class OrdersController < ApplicationController
       current_cart.cart_items.each do |cart_item|
         #将下单信息存到product_list
         product_list = ProductList.new
-        product_list.product = cart_item.product
-        binding.pry
+        product_list.product = cart_item.product #记录product
         product_list.order = @order
-        product_list.product = product
         product_list.product_name = cart_item.product.title
         if cart_item.product.discount.present?
           product_list.product_price = cart_item.product.price * cart_item.product.discount / 100

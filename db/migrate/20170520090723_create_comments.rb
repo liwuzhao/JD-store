@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.text :content
       t.integer :user_id
       t.integer :product_id
-
+      t.integer :order_id
       t.timestamps
     end
   end

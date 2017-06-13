@@ -13,11 +13,12 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  avatar                 :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  truename               :string
 #  nickname               :string
-#  name                   :string
 #  address                :string
 #  numbers                :string
 #

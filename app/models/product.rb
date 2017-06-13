@@ -12,13 +12,13 @@
 #  image       :string
 #  position    :integer
 #  is_public   :boolean          default(TRUE)
+#  category_id :integer
+#  discount    :integer
 #
 
 class Product < ApplicationRecord
 
   belongs_to :category #商品分类
-
-  has_many :product_lists
 
   #购物车的三方关系
   has_many :cart_items

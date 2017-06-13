@@ -22,10 +22,10 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :product_lists #存储购买明细
 
+  has_many :comments
+
   validates :billing_name, presence: true
   validates :phone_numbers, presence: true
-
-  belongs_to :product #下单后对应的商品库存减少
 
   #乱序订单号
 
