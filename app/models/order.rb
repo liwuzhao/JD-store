@@ -19,19 +19,23 @@
 #
 
 class Order < ApplicationRecord
-  before_create :generate_token
   belongs_to :user
-  belongs_to :product
-  has_many :product_lists
+  has_many :product_lists #存储购买明细
+
+  has_many :comments
 
   validates :billing_name, presence: true
   validates :phone_numbers, presence: true
 
+  #乱序订单号
+
+  before_create :generate_token
 
   def generate_token
     self.token = SecureRandom.uuid
   end
 
+  #付款
   def set_payment_with!(method)
     self.update_columns(payment_method: method )
   end
@@ -39,6 +43,8 @@ class Order < ApplicationRecord
   def pay!
     self.update_columns(is_paid: true )
   end
+
+  #订单状态
 
   include AASM
 

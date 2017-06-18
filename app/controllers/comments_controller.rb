@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
       @comment = Comment.new(comment_params)
       @comment.product = @product
       @comment.user = current_user
-
       if @comment.save
+        flash[:notice] = "评论成功"
         redirect_to product_path(@product)
       else
         render :new

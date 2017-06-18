@@ -13,11 +13,12 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  avatar                 :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  truename               :string
 #  nickname               :string
-#  name                   :string
 #  address                :string
 #  numbers                :string
 #
@@ -27,14 +28,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :orders
   has_many :comments
 
+  #用户创建的帖子与评论
   has_many :clubs
   has_many :club_reviews, dependent: :destroy
 
+  #用户拥有一个购物车
   has_one :cart
 
+  #用户发表的文章与评论
   has_many :articles
   has_many :article_reviews
 
@@ -43,6 +48,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, ImageUploader #头像
 
+  #判断是否为admin
   def admin?
     is_admin
   end
@@ -64,7 +70,7 @@ class User < ApplicationRecord
   end
 
   # 收藏社群
-  has_many :club_collections #收藏社群
+  has_many :club_collections
   has_many :participated_clubs, through: :club_collections, source: :club
 
   def is_club_member_of?(club)
@@ -79,9 +85,9 @@ class User < ApplicationRecord
     participated_clubs.delete(club)
   end
 
-  # ---社群帖子点赞三方关系代码块---
+  # 会员分享帖子点赞
 
-  has_many :club_votes                                    #社群帖子点赞关系
+  has_many :club_votes
   has_many :participated_club_votes, through: :club_votes, source: :club
 
   def is_club_vote_member_of?(club)
@@ -94,7 +100,7 @@ class User < ApplicationRecord
 
 
 
-  # ---收藏文章功能三方关系代码块---
+  # 收藏文章
 
   has_many :article_collections                               #收藏商品关系
   has_many :participated_articles, through: :article_collections, source: :article

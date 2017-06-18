@@ -6,7 +6,7 @@
 
           <div class="progress" style="border:solid; border-width:1px;">
             <div class="progress-bar" role="progressbar" aria-valuenow="70"
-            aria-valuemin="0" aria-valuemax="100" style="width:25%">
+            aria-valuemin="0" aria-valuemax="100" style="width:33%">
               等待付款
             </div>
           </div>
@@ -17,7 +17,7 @@
 
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:50%">
+        aria-valuemin="0" aria-valuemax="100" style="width:75%">
           已付款
         </div>
       </div>
@@ -63,6 +63,7 @@
         <tr>
           <th width="80%">商品明细</th>
           <th>单价</th>
+          <th>评价</th>
         </tr>
       </thead>
       <tbody>
@@ -70,10 +71,21 @@
         <% @product_lists.each do |product_list| %>
           <tr>
             <td>
-              <%= product_list.product_name %>
+              <% if product_list.product.present? %>
+                <%= link_to(product_list.product.title, product_path(product_list.product)) %>
+              <% else %>
+                <%= product_list.product_name %>
+              <% end %>
             </td>
             <td>
               <%= product_list.product_price %>
+            </td>
+            <td>
+            <% if product_list.product.present? %>
+              <%= link_to("评价", new_product_comment_path(product_list.product)) %>
+            <% else %>
+              <%= "已下架或失效" %>
+            <% end %>
             </td>
           </tr>
         <% end %>
@@ -116,15 +128,18 @@
         </tr>
       </tbody>
     </table>
+
+
+
     <div class="pull-left">
       <% if @order.order_placed? || @order.paid? %>
-        <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-info") %>
+        <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-danger") %>
       <% end %>
     </div>
     <% if !@order.is_paid? %>
       <div class="group pull-right">
-          <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
-          <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
+          <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-primary") %>
+          <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-primary") %>
       </div>
     <% end %>
   </div>
