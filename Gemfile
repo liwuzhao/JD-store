@@ -62,6 +62,10 @@ gem 'qiniu-rs'
 gem 'figaro'
 gem 'jquery-turbolinks'
 gem 'social-share-button'
+gem "devise-i18n"
+gem "rails-i18n"
+
+
 
 
 

@@ -15,7 +15,7 @@
 </div>
 
 <div class="group">
-  <%= f.input :discount,:label => "Discount % (eg. $100 x 80% = $80)" %>
+  <%= f.input :discount,:label => "折扣 % ($100 x 80% = $80)" %>
 </div>
 
 <div class="group">
@@ -36,7 +36,7 @@
 </div>
 
 <div class="group">
-  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "类别")%>
+  <%= f.association :category, default:@product.category%>
 </div>
 
 <br>

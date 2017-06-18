@@ -18,7 +18,7 @@
 
 class Product < ApplicationRecord
 
-  belongs_to :category #商品分类
+  belongs_to :category ,:optional => true#商品分类
 
   #购物车的三方关系
   has_many :cart_items

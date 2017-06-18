@@ -9,7 +9,7 @@
         <b><%= comment.user.nickname %></b>
      说：
    </span>
-   <span class="pull-right" style="margin-top:20px;"><%= comment.created_at.to_s(:long) %></span>
+   <span class="pull-right" style="margin-top:20px;"><%= comment.created_at.strftime("%Y/%m/%d %I:%M %p") %></span>
   </td>
 </tr>
 <tr>

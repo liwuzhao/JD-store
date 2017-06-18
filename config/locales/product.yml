@@ -1,0 +1,11 @@
+   zh-CN:
+     activerecord:
+       attributes:
+         product:
+           title: "商品名称"
+           description: "描述"
+           price: "价格"
+           quantity: "数量"
+           discount: "折扣"
+           image: "图片"
+           category: "分类"
