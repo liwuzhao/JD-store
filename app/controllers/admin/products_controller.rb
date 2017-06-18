@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
+  before_action :find_product , only: [:show, :edit, :update, :destroy, :move_up, :move_down, :published ]
   layout "admin"
 
   def index
@@ -9,7 +10,6 @@ class Admin::ProductsController < ApplicationController
 
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -30,13 +30,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @categories = Category.all.map { |c| [c.name, c.id]}
 
   end
 
   def update
-    @product = Product.find(params[:id])
     @product.category_id = params[:category_id]
 
     if @product.update(product_params)
@@ -48,40 +46,38 @@ class Admin::ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
-
     @product.destroy
     redirect_to admin_products_path, alert:'已删除商品'
   end
 
   def move_up
-    @product = Product.find(params[:id])
     @product.move_higher
     redirect_to :back
   end
 
   def move_down
-    @product = Product.find(params[:id])
     @product.move_lower
     redirect_to :back
   end
 
   def hide
-    @product = Product.find(params[:id])
     @product.hide!
     redirect_to :back
   end
 
   def publish
-    @product = Product.find(params[:id])
     @product.publish!
     redirect_to :back
   end
 
   private
 
+  def find_product
+    @product = Product.find_by_friendly_id!(params[:id])
+  end
+
   def product_params
-    params.require(:product).permit(:description,:title,:quantity,:price,:image,:is_public,:discount)
+    params.require(:product).permit(:description,:title,:quantity,:price,:image,:is_public,:discount,:friendly_id)
   end
 
 end

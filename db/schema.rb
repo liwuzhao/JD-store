@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610170304) do
+ActiveRecord::Schema.define(version: 20170618025139) do
 
   create_table "article_collections", force: :cascade do |t|
     t.integer  "user_id"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170610170304) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "product_id"
+    t.integer  "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -122,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170610170304) do
 
   create_table "product_lists", force: :cascade do |t|
     t.integer  "order_id"
+    t.integer  "product_id"
     t.string   "product_name"
     t.integer  "product_price"
     t.integer  "quantity"
@@ -141,6 +143,17 @@ ActiveRecord::Schema.define(version: 20170610170304) do
     t.boolean  "is_public",   default: true
     t.integer  "category_id"
     t.integer  "discount"
+    t.string   "friendly_id"
+    t.index ["friendly_id"], name: "index_products_on_friendly_id", unique: true
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

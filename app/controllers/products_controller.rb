@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user! , only: [:collect, :un_collect]
   before_action :validate_search_key, only: [:search]
+  before_action :find_product, only: [:show, :add_to_cart, :pay_now, :collect, :un_collect]
 
 
   def index
@@ -23,12 +24,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
-    @comment = Comment.new
   end
 
   def add_to_cart
-    @product = Product.find(params[:id])
     @quantity = params[:quantity].to_i
 
     if current_cart.products.include?(@product)
@@ -44,7 +42,6 @@ class ProductsController < ApplicationController
   end
 
   def pay_now
-    @product = Product.find(params[:id])
     @quantity = 1
 
     if !current_cart.products.include?(@product)
@@ -58,8 +55,6 @@ class ProductsController < ApplicationController
   end
 
   def collect
-    @product = Product.find(params[:id])
-
     if !current_user.is_collect_of?(@product)
       current_user.collect!(@product)
     else
@@ -70,8 +65,6 @@ class ProductsController < ApplicationController
   end
 
   def un_collect
-    @product = Product.find(params[:id])
-
     if current_user.is_collect_of?(@product)
       current_user.un_collect!(@product)
     else
@@ -90,6 +83,10 @@ class ProductsController < ApplicationController
 
 
   protected
+
+  def find_product
+    @product = Product.find_by_friendly_id!(params[:id])
+  end
 
   def validate_search_key
     @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?

@@ -88,14 +88,6 @@
        </p>
      </div>
      <div id="menu1" class="tab-pane fade">
-       <div class="comment-input">
-         <br>
-         <%= simple_form_for @comment,url:product_comments_path(@product),:remote => true do |f| %>
-           <%= f.input :content, label:"说你想说"%>
-           <%= f.submit "添加评论", :disable_with => "提交中",class: "comment-button btn" %>
-         <% end %>
-         <br>
-       </div>
 
        <table class="table table-striped table-bordered">
          <tbody id="product-comment-<%=@product.id%>">
