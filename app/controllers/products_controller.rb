@@ -84,10 +84,6 @@ class ProductsController < ApplicationController
 
   protected
 
-  def find_product
-    @product = Product.find_by_friendly_id!(params[:id])
-  end
-
   def validate_search_key
     @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
     @search_criteria = search_criteria(@query_string)

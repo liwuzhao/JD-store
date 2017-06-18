@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def find_product
+    @product = Product.find_by_friendly_id!(params[:id])
+  end
+
   helper_method :current_cart
 
   def current_cart

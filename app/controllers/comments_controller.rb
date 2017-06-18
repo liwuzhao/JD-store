@@ -2,12 +2,12 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @product = Product.find(params[:product_id])
     @comment = Comment.new
+    @product = Product.find_by_friendly_id!(params[:product_id])
   end
 
   def create
-      @product = Product.find(params[:product_id])
+      @product = Product.find_by_friendly_id!(params[:product_id])
       @comment = Comment.new(comment_params)
       @comment.product = @product
       @comment.user = current_user
