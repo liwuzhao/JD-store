@@ -27,8 +27,8 @@
 
                 <li>
                   <%= link_to carts_path do  %>
-                  购物车 <i class="fa fa-shopping-cart"> </i> <span class="badge"><%= current_cart.products.count %></span>
-                <% end %>
+                    购物车 <i class="fa fa-shopping-cart"> </i> <span id="cart" class="badge"><%= current_cart.products.count %></span>
+                  <% end %>
                 </li>
 
                  <% if !current_user %>
