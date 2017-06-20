@@ -55,8 +55,7 @@ class Product < ApplicationRecord
     self.is_public = false
     self.save
   end
-
-
+  
   #ID
   def to_param
     self.friendly_id
