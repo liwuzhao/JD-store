@@ -1,0 +1,34 @@
+<div class="item">
+    <% if cart_item.product.image.present? %>
+      <%= link_to image_tag(cart_item.product.image.medium.url), product_path(cart_item.product), class: "item-thumb"%>
+    <% else %>
+      <%= link_to image_tag("http://placehold.it/200x200&text=No Pic"), product_path(cart_item.product), class: "item-thumb"%>
+    <% end %>
+    <div class="item-details">
+        <p class="item-title">
+          <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
+        </p>
+        <p class="item-price">
+          <strong>
+            ¥<% if cart_item.product.discount.present? %>
+               <%= cart_item.product.price * cart_item.product.discount / 100 * cart_item.quantity%>
+             <% else %>
+               <%= cart_item.product.price * cart_item.quantity%>
+            <% end %>
+          </strong>
+        </p>
+    </div>
+
+    <div class="cart-quantity-box">
+      <%= link_to("-", remove_quantity_cart_item_path(cart_item.product_id), class: "cart-quantity-actions", method: :post) %>
+      <input class="cart-quantity-input" type="text" value="<%= cart_item.quantity %>">
+      <%= link_to("+", add_quantity_cart_item_path(cart_item.product_id), class: "cart-quantity-actions", method: :post) %>
+    </div>
+
+    <div class="cart-delete">
+        <%= link_to cart_item_path(cart_item.product_id), class: "item-remove btn btn-xs  btn-danger", :data => { :confirm => "确认要将该商品移出购物车吗？" } ,method: :delete do %>
+        <i class="fa fa-trash-o fa-fw"></i>
+        <% end %>
+    </div>
+
+</div>

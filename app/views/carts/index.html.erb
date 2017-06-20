@@ -10,42 +10,9 @@
     </div>
     <hr>
     <div class="col-xs-12 col-md-8 padding-bottom-2x">
-      <div class="shopping-cart">
+      <div id="change" class="shopping-cart">
         <% current_cart.cart_items.each do |cart_item| %>
-          <div class="item">
-              <% if cart_item.product.image.present? %>
-                <%= link_to image_tag(cart_item.product.image.medium.url), product_path(cart_item.product), class: "item-thumb"%>
-              <% else %>
-                <%= link_to image_tag("http://placehold.it/200x200&text=No Pic"), product_path(cart_item.product), class: "item-thumb"%>
-              <% end %>
-              <div class="item-details">
-                  <p class="item-title">
-                    <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
-                  </p>
-                  <p class="item-price">
-                    <strong>
-                 			¥<% if cart_item.product.discount.present? %>
-                         <%= cart_item.product.price * cart_item.product.discount / 100 * cart_item.quantity%>
-                       <% else %>
-                         <%= cart_item.product.price * cart_item.quantity%>
-                      <% end %>
-                    </strong>
-                  </p>
-              </div>
-
-              <div class="cart-quantity-box">
-                <%= link_to("-", remove_quantity_cart_item_path(cart_item.product_id), class: "cart-quantity-actions", method: :post) %>
-                <input class="cart-quantity-input" type="text" value="<%= cart_item.quantity %>">
-                <%= link_to("+", add_quantity_cart_item_path(cart_item.product_id), class: "cart-quantity-actions", method: :post) %>
-              </div>
-
-              <div class="cart-delete">
-                  <%= link_to cart_item_path(cart_item.product_id), class: "item-remove btn btn-xs  btn-danger", :data => { :confirm => "确认要将该商品移出购物车吗？" } ,method: :delete do %>
-                  <i class="fa fa-trash-o fa-fw"></i>
-                  <% end %>
-              </div>
-
-          </div>
+          <%= render :partial => "cart_item", :locals => {:cart_item => cart_item} %>
         <% end %>
       </div>
     </div>
@@ -58,7 +25,7 @@
         <% if current_cart.cart_items.present? %>
           <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-info btn-block", data: {confirm: "确认要清空购物车吗"}) %>
         <% else %>
-          <%= link_to("清空购物车", '#', class: "btn btn-primary btn-info btn-block disabled") %>        
+          <%= link_to("清空购物车", '#', class: "btn btn-primary btn-info btn-block disabled") %>
         <% end %>
         <%= link_to("结帐", checkout_carts_path, method: :post, class: "btn btn-danger btn-block") %>
       </aside>
