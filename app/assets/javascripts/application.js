@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require social-share-button
 //= require social-share-button/wechat
@@ -55,7 +54,7 @@ $(window).scroll(function () {
 
 
 //增减数量
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   /*增加数量*/
   $("#quantity-plus").click(function(e) {
     var num = parseInt($("#quantity-input").val()) + 1;
@@ -80,7 +79,7 @@ $(document).on('turbolinks:load', function() {
 
 
 // flash通知自动消失
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
 
   // 收起通知
   slideUpAlert();

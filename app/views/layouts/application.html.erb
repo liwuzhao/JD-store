@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
     <link rel="shortcut icon" href="/images/icon1.png">
   </head>
 
@@ -13,8 +13,8 @@
      <div class="content">
         <div class="container-fluid navbar_fix">
           <div class="row">
-              <%= render "common/flashes" %>
               <%= render "common/navbar" %>
+              <%= render "common/flashes" %>
           </div>
           <%= yield %>
 
