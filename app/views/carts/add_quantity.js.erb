@@ -1,0 +1,3 @@
+str = "<%=j render :partial => "cart_data" %>";
+$("#change").html(str);
+$("#change-total-price").html("¥ <%= render_cart_total_price(current_cart)%>");

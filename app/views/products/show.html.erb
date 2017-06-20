@@ -51,9 +51,9 @@
     </div>
 
 
-    <div class="show-favorit">
-        <%= render_product_collection_state(@product) %>
-        收藏人气(<%= @product.collectors.count %>)
+    <div id="collect" class="show-favorit">
+
+        <%= render :partial => "favorite" %>
     </div>
 
 

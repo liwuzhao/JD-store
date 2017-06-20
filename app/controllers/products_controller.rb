@@ -62,7 +62,6 @@ class ProductsController < ApplicationController
       flash[:warning] = "你已经收藏过该商品了"
     end
 
-    redirect_to product_path(@product)
   end
 
   def un_collect
@@ -72,7 +71,7 @@ class ProductsController < ApplicationController
       flash[:warning] = "你还没有收藏该商品"
     end
 
-    redirect_to product_path(@product)
+    render "collect"
   end
 
   def search
