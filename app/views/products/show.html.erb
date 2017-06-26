@@ -29,7 +29,7 @@
 
     <div class="show-action clearfix">
        <% if @product.quantity.present? && @product.quantity > 0 %>
-         <%= form_tag add_to_cart_product_path(@product), :method => :post, :remote => true do %>
+         <%= form_tag add_to_cart_product_path(@product), :method => :post do %>
             <div class="quantity-box">
                 <p>
                   <span>数量</span>
@@ -39,11 +39,9 @@
                 </p>
             </div>
 
-             <button class="btn btn-lg a1" type="submit">
-               <%= "加入购物车" %>
-             </button>
+             <%= submit_tag "加入购物车", :class => "btn btn-lg a1" %>
+             <%= submit_tag "立即购买", class: "btn btn-lg a2"%>
           <% end %>
-        <%= link_to("立即购买",pay_now_product_path(@product) ,method: :post, class: "btn btn-lg a2",style: "background-color:none;") %>
       <% else %>
         <%= link_to("已售罄","#",class: "btn btn-lg", style:"background-color:gray;") %>
       <% end %>
@@ -84,7 +82,7 @@
      <div id="home" class="tab-pane fade in active">
         <h2>课程介绍</h2>
        <p class="description">
-         <%= simple_format(@product.description) %>
+         <%= sanitize @product.description %>
        </p>
      </div>
      <div id="menu1" class="tab-pane fade">
