@@ -16,4 +16,9 @@ module ProductsHelper
       content_tag(:span, "", :class => "fa fa-lock")
     end
   end
+
+  def product_filters(options)
+    params.permit(:category, :order).merge(options)
+  end
+
 end
