@@ -37,7 +37,7 @@ class Product < ApplicationRecord
   #商品顺序
   acts_as_list
 
-  scope :published, -> { where(is_public: true) }
+  scope :published, -> { where("is_public = ?", true) }
 
   validates_presence_of :title, :description, :price, :quantity, :friendly_id
   validates_uniqueness_of :friendly_id
@@ -55,7 +55,7 @@ class Product < ApplicationRecord
     self.is_public = false
     self.save
   end
-  
+
   #ID
   def to_param
     self.friendly_id

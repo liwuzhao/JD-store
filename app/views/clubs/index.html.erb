@@ -78,7 +78,7 @@
 
           <!-- 评论内容 -->
           <div class="club-reviews">
-            <% club.club_reviews.order("created_at DESC").each do |club_review| %>
+            <% club.club_reviews.order("created_at DESC").find_each do |club_review| %>
 
               <div class="row">
                 <div class="review-user">

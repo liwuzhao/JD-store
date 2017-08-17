@@ -5,13 +5,13 @@ class ArticlesController < ApplicationController
   # ---CRUD---
 
   def index
-    @articles = Article.where(:is_hidden => false).order("created_at DESC")
+    @articles = Article.where("is_hidden = ?", false).order("created_at DESC")
   end
 
   def show
     @article = Article.find(params[:id])
     @user = @article.user
-    @article_reviews = ArticleReview.where(article_id: @article.id).order("created_at DESC")
+    @article_reviews = @article.article_reviews.order("created_at DESC")
     @article_review = ArticleReview.new
 
     if @article.is_hidden
