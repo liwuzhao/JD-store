@@ -1,12 +1,10 @@
 <div class="btn-group">
-  <button class='btn btn-menu' type='button'>
+  <div class='btn-group clearfix btn btn-menu'>
     <%= link_to("所有产品", products_path) %>
-  </button>
-  <% Category.all.each do |category| %>
-    <div class='btn-group clearfix'>
-      <button class='btn btn-menu' type='button'>
-        <%= link_to(category.name, products_path( product_filters(:category => category)) ) %>
-      </button>
+  </div>
+  <% Category.find_each do |category| %>
+    <div class='btn-group clearfix btn btn-menu'>
+        <%= link_to(category.name, products_path( product_filters(:category => category)))%>
     </div>
   <% end %>
 </div>
