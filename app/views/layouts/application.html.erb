@@ -10,18 +10,20 @@
   </head>
 
   <body>
-     <div class="content">
-        <div class="container-fluid navbar_fix">
-          <div class="row">
-              <%= render "common/navbar" %>
-              <%= render "common/flashes" %>
-          </div>
-          <%= yield %>
-
+    <div class="content">
+      <div class="container-fluid navbar_fix">
+        <div class="row">
+          <%= render "common/navbar" %>
+          <%= render "common/flashes" %>
         </div>
-     </div>
+        <%= yield %>
 
-     <%= render "common/footer" %>
+      </div>
+    </div>
 
+    <%= render "common/footer" %>
+
+    <%= javascript_include_tag 'application', :defer => true%>
+    <%= yield :handwrite_javascript %>
   </body>
 </html>

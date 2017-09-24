@@ -24,7 +24,9 @@
 </table>
 
 <canvas id="myChart3" width="400" height="200"></canvas>
+<%= content_for :handwrite_javascript do %>
 <script>
+window.addEventListener('DOMContentLoaded', function() {
 var ctx3 = document.getElementById("myChart3");
 var myChart3 = new Chart(ctx3, {
     type: 'line',
@@ -39,4 +41,6 @@ var myChart3 = new Chart(ctx3, {
         }
     }
 });
+})
 </script>
+<% end %>
