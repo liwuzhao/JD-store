@@ -34,6 +34,8 @@ class ApplicationController < ActionController::Base
     # session[:cart_id] = cart.id
     # cart
     cart = Cart.find_or_create_by(id: session[:cart_id])
+    session[:cart_id] = cart.id
+    cart
   end
 
   def find_user_cart
