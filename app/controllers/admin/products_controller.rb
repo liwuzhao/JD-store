@@ -1,8 +1,6 @@
-class Admin::ProductsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_required
+class Admin::ProductsController < Admin::BaseController
+  
   before_action :find_product , only: [:show, :hide, :publish, :edit, :update, :destroy, :move_up, :move_down, :published ]
-  layout "admin"
 
   def index
     @products = Product.all.order("position ASC")

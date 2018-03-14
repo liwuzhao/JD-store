@@ -1,7 +1,5 @@
-class Account::UsersController < ApplicationController
-  before_action :authenticate_user!
-  layout "account"
-
+class Account::UsersController < Account::BaseController
+  
   def edit
     @user = current_user
   end

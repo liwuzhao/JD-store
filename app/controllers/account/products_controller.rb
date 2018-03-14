@@ -1,7 +1,4 @@
-class Account::ProductsController < ApplicationController
-  before_action :authenticate_user!
-  layout "account"
-
+class Account::ProductsController < Account::BaseController
   def index
     @products = current_user.collections
   end

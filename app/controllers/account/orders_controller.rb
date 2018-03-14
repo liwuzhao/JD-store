@@ -1,7 +1,4 @@
-class Account::OrdersController < ApplicationController
-  before_action :authenticate_user!
-  layout "account"
-
+class Account::OrdersController < Account::BaseController
   def index
     @orders = current_user.orders.order("id DESC")
   end

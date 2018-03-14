@@ -1,9 +1,4 @@
-class Admin::ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :index]
-  before_action :admin_required
-  layout "admin"
-
-  # ---CRUD---
+class Admin::ArticlesController < Admin::BaseController
 
   def index
     @articles = Article.all.order("created_at DESC")

@@ -51,7 +51,6 @@ gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'acts_as_list'
 gem 'awesome_rails_console'
-gem "intercom-rails"
 gem 'ransack'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
@@ -59,7 +58,6 @@ gem 'seo_helper'
 gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
-gem 'jquery-turbolinks'
 gem 'social-share-button'
 gem "devise-i18n"
 gem "rails-i18n"

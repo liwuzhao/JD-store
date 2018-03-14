@@ -4,7 +4,7 @@
     <title>Fitness</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <link rel="shortcut icon" href="/images/icon1.png">
   </head>
 
@@ -23,6 +23,5 @@
     <%= render "common/footer" %>
 
     <%= javascript_include_tag 'application', :defer => true%>
-    <%= yield :handwrite_javascript %>
   </body>
 </html>
